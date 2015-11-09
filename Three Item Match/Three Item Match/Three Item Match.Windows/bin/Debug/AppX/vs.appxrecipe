@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-11-08T05:53:08.437</Modified>
+      <Modified>2015-11-09T19:10:18.454</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Three Item Match.Windows.exe">
       <PackagePath>Three Item Match.Windows.exe</PackagePath>
-      <Modified>2015-11-08T09:41:08.385</Modified>
+      <Modified>2015-11-09T19:12:04.422</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\WriteableBitmapEx.1.5.0.0\lib\NetCore45\WriteableBitmapEx.WinRT.dll">
       <PackagePath>WriteableBitmapEx.WinRT.dll</PackagePath>
@@ -56,19 +56,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Diamond.bmp">
       <PackagePath>Assets\Diamond.bmp</PackagePath>
-      <Modified>2015-11-08T03:27:16.797</Modified>
+      <Modified>2015-11-08T10:12:03.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Oval.bmp">
       <PackagePath>Assets\Oval.bmp</PackagePath>
-      <Modified>2015-11-08T03:06:38.078</Modified>
+      <Modified>2015-11-08T10:12:05.775</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Squiggle.bmp">
       <PackagePath>Assets\Squiggle.bmp</PackagePath>
-      <Modified>2015-11-08T03:06:47.652</Modified>
+      <Modified>2015-11-08T10:12:00.602</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Three Item Match.Windows.xr.xml">
       <PackagePath>Three Item Match.Windows.xr.xml</PackagePath>
-      <Modified>2015-11-08T09:41:08.198</Modified>
+      <Modified>2015-11-09T19:10:17.477</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -76,15 +76,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Card.xbf">
       <PackagePath>Card.xbf</PackagePath>
-      <Modified>2015-11-08T09:41:08.299</Modified>
+      <Modified>2015-11-09T19:10:17.592</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-11-08T09:41:08.302</Modified>
+      <Modified>2015-11-09T19:10:17.598</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-11-08T05:53:08.156</Modified>
+      <Modified>2015-11-09T19:10:18.078</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

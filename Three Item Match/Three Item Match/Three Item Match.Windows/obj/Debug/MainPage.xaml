@@ -13,19 +13,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button x:ConnectionId='1' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"                      RequestedTheme="Dark">Randomize</Button>
-        <Grid x:Name="CardGrid" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
+        <Canvas x:ConnectionId='2' x:Name="MainCanvas" Grid.Row="1"                                 >
+
+        </Canvas>
     </Grid>
 </Page>
 

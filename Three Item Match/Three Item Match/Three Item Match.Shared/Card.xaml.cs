@@ -82,7 +82,7 @@ namespace Three_Item_Match
             }
             for (int i = 0; i < numRows; i++)
             {
-                Rectangle colorRect = new Rectangle() { Fill = new SolidColorBrush(color), Margin = new Thickness(1.2) };
+                Rectangle colorRect = new Rectangle() { Fill = new SolidColorBrush(color), Margin = new Thickness(1,1,2,1) };
                 Image imgCtrl = new Image() { Source = RenderedShapes[num], Stretch = Stretch.Uniform, VerticalAlignment = VerticalAlignment.Stretch, HorizontalAlignment = HorizontalAlignment.Stretch };
                 Grid.SetRow(imgCtrl, 2 * i);
                 Grid.SetRow(colorRect, 2 * i);
