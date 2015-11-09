@@ -22,7 +22,7 @@
     <AppXManifest Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-11-08T07:33:56.715</Modified>
+      <Modified>2015-11-09T03:20:31.576</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -32,7 +32,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Assets\Diamond.bmp">
       <PackagePath>Assets\Diamond.bmp</PackagePath>
-      <Modified>2015-11-08T03:27:16.797</Modified>
+      <Modified>2015-11-08T10:12:03.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Assets\Img.bmp">
       <PackagePath>Assets\Img.bmp</PackagePath>
@@ -44,7 +44,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Assets\Oval.bmp">
       <PackagePath>Assets\Oval.bmp</PackagePath>
-      <Modified>2015-11-08T03:06:38.078</Modified>
+      <Modified>2015-11-08T10:12:05.775</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -68,7 +68,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Assets\Squiggle.bmp">
       <PackagePath>Assets\Squiggle.bmp</PackagePath>
-      <Modified>2015-11-08T03:06:47.652</Modified>
+      <Modified>2015-11-08T10:12:00.602</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
@@ -86,7 +86,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\entrypoint\Three Item Match.Windows10.exe">
       <PackagePath>entrypoint\Three Item Match.Windows10.exe</PackagePath>
-      <Modified>2015-11-08T07:33:55.609</Modified>
+      <Modified>2015-11-09T03:20:30.496</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -118,7 +118,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-11-08T07:33:56.173</Modified>
+      <Modified>2015-11-09T02:25:02.895</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
@@ -518,11 +518,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Three Item Match.Windows10.exe">
       <PackagePath>Three Item Match.Windows10.exe</PackagePath>
-      <Modified>2015-11-08T07:33:56.712</Modified>
+      <Modified>2015-11-09T03:20:31.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Three Item Match.Windows10.xr.xml">
       <PackagePath>Three Item Match.Windows10.xr.xml</PackagePath>
-      <Modified>2015-11-08T07:31:24.633</Modified>
+      <Modified>2015-11-09T02:25:01.965</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\WinMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

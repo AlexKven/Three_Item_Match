@@ -28,7 +28,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Three Item Match.Windows.exe">
       <PackagePath>Three Item Match.Windows.exe</PackagePath>
-      <Modified>2015-11-08T06:32:22.576</Modified>
+      <Modified>2015-11-08T09:41:08.385</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\WriteableBitmapEx.1.5.0.0\lib\NetCore45\WriteableBitmapEx.WinRT.dll">
       <PackagePath>WriteableBitmapEx.WinRT.dll</PackagePath>
@@ -68,7 +68,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Three Item Match.Windows.xr.xml">
       <PackagePath>Three Item Match.Windows.xr.xml</PackagePath>
-      <Modified>2015-11-08T06:31:57.996</Modified>
+      <Modified>2015-11-08T09:41:08.198</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -76,11 +76,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Card.xbf">
       <PackagePath>Card.xbf</PackagePath>
-      <Modified>2015-11-08T06:32:22.498</Modified>
+      <Modified>2015-11-08T09:41:08.299</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-11-08T06:24:55.289</Modified>
+      <Modified>2015-11-08T09:41:08.302</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

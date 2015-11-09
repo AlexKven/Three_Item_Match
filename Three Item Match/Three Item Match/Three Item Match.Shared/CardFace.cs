@@ -18,6 +18,24 @@ namespace Three_Item_Match
         public CardShape Shape { get; private set; }
         public CardColor Color { get; private set; }
         public CardFill Fill { get; private set; }
+
+        public int ToInt()
+        {
+            return (int)Shape + 3 * (int)Fill + 9 * (int)Color + 27 * (int)Number;
+        }
+
+        public static CardFace FromInt(int value)
+        {
+            int num = value;
+            CardShape shape = (CardShape)(num % 3);
+            num /= 3;
+            CardFill fill = (CardFill)(num % 3);
+            num /= 3;
+            CardColor color = (CardColor)(num % 3);
+            num /= 3;
+            CardNumber number = (CardNumber)(num % 3);
+            return new CardFace(number, shape, color, fill);
+        }
     }
 
     public enum CardNumber { Single, Double, Triple }

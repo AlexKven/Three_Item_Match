@@ -22,23 +22,32 @@ namespace Three_Item_Match
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        Card[] Cards = new Card[81];
+        private DealArranger Dealer;
+
         public MainPage()
         {
             this.InitializeComponent();
-            
+            for (int i = 0; i < 81; i++)
+            {
+                Cards[i] = new Card() { Face = CardFace.FromInt(i) };
+                MainCanvas.Children.Add(Cards[i]);
+            }
+            Dealer = new DealArranger(Cards);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int num = (new Random()).Next(81);
-            CardNumber number = (CardNumber)(num % 3);
-            num /= 3;
-            CardFill fill = (CardFill)(num % 3);
-            num /= 3;
-            CardShape shape = (CardShape)(num % 3);
-            num /= 3;
-            CardColor color = (CardColor)(num % 3);
-            MainCard.Face = new CardFace(number, shape, color, fill);
+            Dealer.DealCards(3);
+        }
+
+        private void Canvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (MainCanvas.ActualWidth > 0 && MainCanvas.ActualHeight > 0)
+            {
+                Dealer.Width = MainCanvas.ActualWidth;
+                Dealer.Height = MainCanvas.ActualHeight;
+            }
         }
     }
 }

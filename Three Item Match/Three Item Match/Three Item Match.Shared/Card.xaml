@@ -5,12 +5,10 @@
     xmlns:local="using:Three_Item_Match"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="330"
-    d:DesignWidth="330" SizeChanged="UserControl_SizeChanged">
-    <ScrollViewer Background="Red" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" HorizontalScrollMode="Enabled" VerticalScrollMode="Enabled">
+    mc:Ignorable="d">
+    <ScrollViewer VerticalScrollMode="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" SizeChanged="UserControl_SizeChanged">
         <Grid x:Name="MainGrid" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Border Visibility="Collapsed" CornerRadius="20" Background="#C080C0" Width="200" Height="300" BorderThickness="2" BorderBrush="Black">
+            <Border x:Name="BackBorder" Visibility="Visible" CornerRadius="20" Background="#C080C0" Width="200" Height="300" BorderThickness="2" BorderBrush="Black">
                 <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="20,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -25,7 +23,7 @@
                     <TextBlock FontFamily="Comic Sans MS" Foreground="White" FontSize="36" HorizontalAlignment="Left" Grid.Row="2" Margin="55,5,0,5">Match</TextBlock>
                 </Grid>
             </Border>
-            <Border Visibility="Visible" BorderThickness="2" BorderBrush="Black" Background="White" CornerRadius="20" Width="200" Height="300">
+            <Border x:Name="FrontBorder" Visibility="Collapsed" BorderThickness="2" BorderBrush="Black" Background="White" CornerRadius="20" Width="200" Height="300">
                 <Grid x:Name="ShapeGrid" Margin="20" VerticalAlignment="Center"/>
             </Border>
             <Grid.RenderTransform>

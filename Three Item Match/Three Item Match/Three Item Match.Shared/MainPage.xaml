@@ -8,12 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="#222266">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Button VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10" Click="Button_Click" RequestedTheme="Dark">Randomize</Button>
-        <local:Card Margin="15" x:Name="MainCard" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Red"/>
-        <local:Card Margin="15" x:Name="MainCard2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Background="Red"/>
+        <Canvas x:Name="MainCanvas" Grid.Row="1" SizeChanged="Canvas_SizeChanged">
+
+        </Canvas>
     </Grid>
 </Page>
