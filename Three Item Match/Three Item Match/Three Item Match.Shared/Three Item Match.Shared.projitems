@@ -20,6 +20,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)CardFace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DealArranger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HelperFunctions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

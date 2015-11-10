@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -17,11 +18,10 @@ namespace Three_Item_Match
             {
                 //Cards[i].SetValue(Control.HeightProperty, 225);
                 //Cards[i].SetValue(Control.WidthProperty, 150);
-                Animations[i, 0] = new DoubleAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(150) };
-                Animations[i, 1] = new DoubleAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(150) };
-                Animations[i, 2] = new DoubleAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(150) };
-                Animations[i, 3] = new DoubleAnimation() { To = 200, Duration = TimeSpan.FromMilliseconds(150) };
-                Animations[i, 4] = new DoubleAnimation() { To = 300, Duration = TimeSpan.FromMilliseconds(150) };
+                Animations[i, 0] = new DoubleAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(550) };
+                Animations[i, 1] = new DoubleAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(550) };
+                Animations[i, 2] = new DoubleAnimation() { To = 0, Duration = TimeSpan.FromMilliseconds(550) };
+                Animations[i, 3] = new DoubleAnimation() { To = 1, Duration = TimeSpan.FromMilliseconds(550), EnableDependentAnimation = true };
 
                 Animations[i, 0].Completed += AnimationCompletedGenerator(i);
 
@@ -32,21 +32,23 @@ namespace Three_Item_Match
                 Storyboard.SetTarget(Animations[i, 1], Cards[i]);
                 Storyboard.SetTarget(Animations[i, 2], rotation);
                 Storyboard.SetTarget(Animations[i, 3], Cards[i]);
-                Storyboard.SetTarget(Animations[i, 4], Cards[i]);
 
                 Storyboard.SetTargetProperty(Animations[i, 0], "(Canvas.Left)");
                 Storyboard.SetTargetProperty(Animations[i, 1], "(Canvas.Top)");
                 Storyboard.SetTargetProperty(Animations[i, 2], "Angle");
-                Storyboard.SetTargetProperty(Animations[i, 3], "Width");
-                Storyboard.SetTargetProperty(Animations[i, 4], "Height");
+                Storyboard.SetTargetProperty(Animations[i, 3], "Scale");
 
                 MainStoryboard.Children.Add(Animations[i, 0]);
                 MainStoryboard.Children.Add(Animations[i, 1]);
                 MainStoryboard.Children.Add(Animations[i, 2]);
                 MainStoryboard.Children.Add(Animations[i, 3]);
-                MainStoryboard.Children.Add(Animations[i, 4]);
             }
             MainStoryboard.Begin();
+
+            //for (int i = 0; i < 31; i++)
+            //    Cards[i].Visibility = Visibility.Collapsed;
+            //for (int i = 50; i < 81; i++)
+            //    Cards[i].Visibility = Visibility.Collapsed;
         }
 
         private EventHandler<object> AnimationCompletedGenerator(int majorIndex)
@@ -58,7 +60,7 @@ namespace Three_Item_Match
         }
 
         Storyboard MainStoryboard = new Storyboard();
-        DoubleAnimation[,] Animations = new DoubleAnimation[81, 5];
+        DoubleAnimation[,] Animations = new DoubleAnimation[81, 4];
         private bool[] FaceUpCards = new bool[81];
 
         private double _Width;
@@ -78,23 +80,23 @@ namespace Three_Item_Match
 
         private Card[] Cards;
 
-        public void DealCards(int numCards)
+        public async Task DealCards(int numCards)
         {
-            double width = 200;
-            double height = 300;
+            double scale = 90.0 / 200;
             for (int i = 0; i < numCards; i++)
             {
+                await Cards[i].CacheImage();
+                double x = 30.0 * (1 + (81 - i) / 11.0) * Math.Cos(i / 27.0 * 2 * Math.PI);
+                double y = 30.0 * (1 + (81 - i) / 11.0) * Math.Sin(i / 27.0 * 2 * Math.PI);
                 FaceUpCards[i] = true;
-                Animations[i, 0].To = (Width - width * numCards) / 2 + width * i;
-                Animations[i, 1].To = (Height - height) / 2;
-                Animations[i, 2].To = 0;
-                Animations[i, 3].To = width;
-                Animations[i, 4].To = height;
-                Animations[i, 0].BeginTime = TimeSpan.FromMilliseconds(100 * (numCards - i - 1));
-                Animations[i, 1].BeginTime = TimeSpan.FromMilliseconds(100 * (numCards - i - 1));
-                Animations[i, 2].BeginTime = TimeSpan.FromMilliseconds(100 * (numCards - i - 1));
-                Animations[i, 3].BeginTime = TimeSpan.FromMilliseconds(100 * (numCards - i - 1));
-                Animations[i, 4].BeginTime = TimeSpan.FromMilliseconds(100 * (numCards - i - 1));
+                Animations[i, 0].To = (Width) / 2.0 + x;
+                Animations[i, 1].To = (Height) / 2.0 + y - 50;
+                Animations[i, 2].To = (i * 360.0 / 27.0) % 360.0;
+                Animations[i, 3].To = scale;
+                Animations[i, 0].BeginTime = TimeSpan.FromMilliseconds(120 * (numCards - i - 1));
+                Animations[i, 1].BeginTime = TimeSpan.FromMilliseconds(120 * (numCards - i - 1));
+                Animations[i, 2].BeginTime = TimeSpan.FromMilliseconds(120 * (numCards - i - 1));
+                Animations[i, 3].BeginTime = TimeSpan.FromMilliseconds(120 * (numCards - i - 1));
             }
             MainStoryboard.Begin();
         }

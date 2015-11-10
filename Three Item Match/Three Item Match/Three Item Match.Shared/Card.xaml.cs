@@ -33,6 +33,10 @@ namespace Three_Item_Match
             Storyboard.SetTarget(FlipAnimation, Projection);
             Storyboard.SetTargetProperty(FlipAnimation, "RotationY");
             FlipStoryboard.Children.Add(FlipAnimation);
+            this.Width = 200;
+            this.Height = 300;
+            MainGrid.Children.Remove(BackImage);
+            MainGrid.Children.Remove(FrontImage);
         }
 
         private DoubleAnimation FlipAnimation = new DoubleAnimation() { Duration = TimeSpan.FromMilliseconds(100) };
@@ -91,6 +95,8 @@ namespace Three_Item_Match
             }
         }
 
+        public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register("Scale", typeof(double), typeof(Card), new PropertyMetadata(1, OnScaleChangedStatic));
+
         private static ImageSource[] RenderedShapes = new ImageSource[9];
 
         public static async Task RenderShapes()
@@ -122,17 +128,22 @@ namespace Three_Item_Match
             }
         }
 
-        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        public double Scale
         {
-            if (e.NewSize.Height > 0 && e.NewSize.Width > 0)
-            {
-                double xScl = e.NewSize.Width / 230;
-                double yScl = e.NewSize.Height / 330;
-                double scl = Min(yScl, xScl);
-                Scale.ScaleX = scl;
-                Scale.ScaleY = scl;
-                MainGrid.Margin = new Thickness((e.NewSize.Width - 200 * scl) / 2, (e.NewSize.Height - 300 * scl) / 2, 0, 0);
-            }
+            get { return (double)GetValue(ScaleProperty); }
+            set { SetValue(ScaleProperty, value); }
+        }
+
+        private static void OnScaleChangedStatic(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            Card typedSender = (Card)sender;
+
+            typedSender.Width = typedSender.Scale * 200;
+            typedSender.Height = typedSender.Scale * 300;
+            double scl = typedSender.Scale * 200 / 230;
+            typedSender.InnerScale.ScaleX = scl;
+            typedSender.InnerScale.ScaleY = scl;
+            typedSender.MainGrid.Margin = new Thickness((typedSender.Width - 200 * scl) / 2, (typedSender.Height - 300 * scl) / 2, 0, 0);
         }
 
         private bool _FaceUp = false;
@@ -189,6 +200,72 @@ namespace Three_Item_Match
             FlipAnimation.To = 0;
             FlipAnimation.From = -90;
             FlipStoryboard.Begin();
+        }
+
+        public async Task CacheImage()
+        {
+            if (FrontBorder.Visibility == Visibility.Collapsed && BackBorder.Visibility == Visibility.Collapsed)
+                return;
+            if (FaceUp)
+            {
+                await CacheFrontImage();
+                await CacheBackImage();
+            }
+            else
+            {
+                await CacheBackImage();
+                await CacheFrontImage();
+            }
+        }
+
+        public void DecacheImage()
+        {
+            if (FrontBorder.Visibility != Visibility.Visible && BackBorder.Visibility != Visibility.Visible)
+                return;
+            MainGrid.Children.Add(BackBorder);
+            MainGrid.Children.Add(FrontBorder);
+            MainGrid.Children.Remove(BackImage);
+            MainGrid.Children.Remove(FrontImage);
+        }
+
+        private async Task CacheFrontImage()
+        {
+            double width = Scale * 200 * 200 / 230;
+            double height = Scale * 300 * 200 / 230;
+            RenderTargetBitmap rtb = new RenderTargetBitmap();
+            FrontBorder.Visibility = Visibility.Visible;
+            MainGrid.InvalidateMeasure();
+            MainGrid.InvalidateArrange();
+            await rtb.RenderAsync(FrontBorder);
+            FrontImage.Source = rtb;
+            MainGrid.Children.Add(FrontImage);
+            MainGrid.Children.Remove(FrontBorder);
+        }
+
+        private async Task CacheBackImage()
+        {
+            double width = Scale * 200 * 200 / 230;
+            double height = Scale * 300 * 200 / 230;
+            RenderTargetBitmap rtb = new RenderTargetBitmap();
+            BackImage.Visibility = Visibility.Visible;
+            MainGrid.InvalidateMeasure();
+            MainGrid.InvalidateArrange();
+            await rtb.RenderAsync(BackBorder);
+            BackImage.Source = rtb;
+            MainGrid.Children.Add(BackImage);
+            MainGrid.Children.Remove(BackBorder);
+        }
+
+        public async Task<RenderTargetBitmap> GetImage()
+        {
+            RenderTargetBitmap rtb = new RenderTargetBitmap();
+            if (FaceUp)
+                await rtb.RenderAsync(FrontBorder);
+            else
+                await rtb.RenderAsync(BackBorder);
+            WriteableBitmap wbm = new WriteableBitmap(300, 450);
+            
+            return rtb;
         }
     }
 }

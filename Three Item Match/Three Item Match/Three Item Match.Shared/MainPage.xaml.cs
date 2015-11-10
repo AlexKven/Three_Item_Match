@@ -33,21 +33,28 @@ namespace Three_Item_Match
                 Cards[i] = new Card() { Face = CardFace.FromInt(i) };
                 MainCanvas.Children.Add(Cards[i]);
             }
-            Dealer = new DealArranger(Cards);
+            //Dealer = new DealArranger(Cards);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            Dealer.DealCards(3);
+            //await Dealer.DealCards(81);
+            await HelperFunctions.SaveImage(await Cards[80].GetImage(), "Back");
+            for (int i = 80; i >= 0; i--)
+            {
+                Cards[i].FaceUp = true;
+                await HelperFunctions.SaveImage(await Cards[i].GetImage(), "Card" + i.ToString());
+                MainCanvas.Children.Remove(Cards[i]);
+            }
         }
 
         private void Canvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (MainCanvas.ActualWidth > 0 && MainCanvas.ActualHeight > 0)
-            {
-                Dealer.Width = MainCanvas.ActualWidth;
-                Dealer.Height = MainCanvas.ActualHeight;
-            }
+            //if (MainCanvas.ActualWidth > 0 && MainCanvas.ActualHeight > 0)
+            //{
+            //    Dealer.Width = MainCanvas.ActualWidth;
+            //    Dealer.Height = MainCanvas.ActualHeight;
+            //}
         }
     }
 }

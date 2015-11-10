@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <ScrollViewer x:ConnectionId='1' VerticalScrollMode="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"                                      >
+    <ScrollViewer VerticalScrollMode="Disabled" HorizontalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
         <Grid x:Name="MainGrid" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Border x:Name="BackBorder" Visibility="Visible" CornerRadius="20" Background="#C080C0" Width="200" Height="300" BorderThickness="2" BorderBrush="Black">
                 <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="20,0,0,0">
@@ -27,7 +27,7 @@
                 <Grid x:Name="ShapeGrid" Margin="20" VerticalAlignment="Center"/>
             </Border>
             <Grid.RenderTransform>
-                <ScaleTransform CenterX="0" CenterY="0" x:Name="Scale"/>
+                <ScaleTransform CenterX="0" CenterY="0" x:Name="InnerScale"/>
             </Grid.RenderTransform>
             <Grid.Projection>
                 <PlaneProjection CenterOfRotationX="0.5" CenterOfRotationY="0.5" CenterOfRotationZ="0.5" x:Name="Projection"/>

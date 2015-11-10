@@ -13,26 +13,35 @@ namespace Three_Item_Match
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+    private global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
+        /// <summary>
+        /// GetXamlType(Type)
+        /// </summary>
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(global::System.Type type)
         {
             if(_provider == null)
             {
-                _provider = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
 
+        /// <summary>
+        /// GetXamlType(String)
+        /// </summary>
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(string fullName)
         {
             if(_provider == null)
             {
-                _provider = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByName(fullName);
         }
 
+        /// <summary>
+        /// GetXmlnsDefinitions()
+        /// </summary>
         public global::Windows.UI.Xaml.Markup.XmlnsDefinition[] GetXmlnsDefinitions()
         {
             return new global::Windows.UI.Xaml.Markup.XmlnsDefinition[0];
@@ -40,11 +49,10 @@ namespace Three_Item_Match
     }
 }
 
-namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
+namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
 {
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
-    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal partial class XamlTypeInfoProvider
     {
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByType(global::System.Type type)
@@ -124,25 +132,27 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[8];
+            _typeNameTable = new string[9];
             _typeNameTable[0] = "Three_Item_Match.Card";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "Three_Item_Match.CardFace";
             _typeNameTable[3] = "System.ValueType";
             _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "Boolean";
-            _typeNameTable[6] = "Three_Item_Match.MainPage";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[5] = "Double";
+            _typeNameTable[6] = "Boolean";
+            _typeNameTable[7] = "Three_Item_Match.MainPage";
+            _typeNameTable[8] = "Windows.UI.Xaml.Controls.Page";
 
-            _typeTable = new global::System.Type[8];
+            _typeTable = new global::System.Type[9];
             _typeTable[0] = typeof(global::Three_Item_Match.Card);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::Three_Item_Match.CardFace);
             _typeTable[3] = typeof(global::System.ValueType);
             _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::System.Boolean);
-            _typeTable[6] = typeof(global::Three_Item_Match.MainPage);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[5] = typeof(global::System.Double);
+            _typeTable[6] = typeof(global::System.Boolean);
+            _typeTable[7] = typeof(global::Three_Item_Match.MainPage);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.Page);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -178,12 +188,12 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
         }
 
         private object Activate_0_Card() { return new global::Three_Item_Match.Card(); }
-        private object Activate_6_MainPage() { return new global::Three_Item_Match.MainPage(); }
+        private object Activate_7_MainPage() { return new global::Three_Item_Match.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType userType;
+            global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -191,47 +201,52 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
             {
 
             case 0:   //  Three_Item_Match.Card
-                userType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_0_Card;
                 userType.AddMemberName("Face");
+                userType.AddMemberName("Scale");
                 userType.AddMemberName("FaceUp");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 1:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  Three_Item_Match.CardFace
-                userType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 3:   //  System.ValueType
-                userType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
             case 4:   //  Object
-                xamlType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Boolean
-                xamlType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 5:   //  Double
+                xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  Three_Item_Match.MainPage
-                userType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainPage;
+            case 6:   //  Boolean
+                xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Three_Item_Match.MainPage
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 8:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -248,12 +263,22 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
             var that = (global::Three_Item_Match.Card)instance;
             that.Face = (global::Three_Item_Match.CardFace)Value;
         }
-        private object get_1_Card_FaceUp(object instance)
+        private object get_1_Card_Scale(object instance)
+        {
+            var that = (global::Three_Item_Match.Card)instance;
+            return that.Scale;
+        }
+        private void set_1_Card_Scale(object instance, object Value)
+        {
+            var that = (global::Three_Item_Match.Card)instance;
+            that.Scale = (global::System.Double)Value;
+        }
+        private object get_2_Card_FaceUp(object instance)
         {
             var that = (global::Three_Item_Match.Card)instance;
             return that.FaceUp;
         }
-        private void set_1_Card_FaceUp(object instance, object Value)
+        private void set_2_Card_FaceUp(object instance, object Value)
         {
             var that = (global::Three_Item_Match.Card)instance;
             that.FaceUp = (global::System.Boolean)Value;
@@ -261,31 +286,37 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlMember xamlMember = null;
-            global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType userType;
+            global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember xamlMember = null;
+            global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType userType;
 
             switch (longMemberName)
             {
             case "Three_Item_Match.Card.Face":
-                userType = (global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Three_Item_Match.Card");
-                xamlMember = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlMember(this, "Face", "Three_Item_Match.CardFace");
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Three_Item_Match.Card");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "Face", "Three_Item_Match.CardFace");
                 xamlMember.Getter = get_0_Card_Face;
                 xamlMember.Setter = set_0_Card_Face;
                 break;
+            case "Three_Item_Match.Card.Scale":
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Three_Item_Match.Card");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "Scale", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_Card_Scale;
+                xamlMember.Setter = set_1_Card_Scale;
+                break;
             case "Three_Item_Match.Card.FaceUp":
-                userType = (global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Three_Item_Match.Card");
-                xamlMember = new global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlMember(this, "FaceUp", "Boolean");
-                xamlMember.Getter = get_1_Card_FaceUp;
-                xamlMember.Setter = set_1_Card_FaceUp;
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Three_Item_Match.Card");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "FaceUp", "Boolean");
+                xamlMember.Getter = get_2_Card_FaceUp;
+                xamlMember.Setter = set_2_Card_FaceUp;
                 break;
             }
             return xamlMember;
         }
     }
 
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
-    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlSystemBaseType : global::Windows.UI.Xaml.Markup.IXamlType
     {
         string _fullName;
@@ -331,12 +362,11 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
     internal delegate void AddToCollection(object instance, object item);
     internal delegate void AddToDictionary(object instance, object key, object item);
 
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
-    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlSystemBaseType
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class XamlUserType : global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType
     {
-        global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -350,7 +380,7 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -538,12 +568,11 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
     internal delegate object Getter(object instance);
     internal delegate void Setter(object instance, object value);
 
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
-    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -552,7 +581,7 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;
@@ -603,5 +632,4 @@ namespace Three_Item_Match.Three_Item_Match_WindowsPhone_XamlTypeInfo
         }
     }
 }
-
 

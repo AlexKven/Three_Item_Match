@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>978ce514-5a1f-4f4a-8902-a4a421446e6f</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>EADE738BCA9BB01423596B6FC900E9E1B9A4C574E1A7847F4D3C1A6C34E49FA2</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>815B96439169382E32250D9470BDDF37A801533E7C1BC1CEC7B94BC0DB6FDF17</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>978ce514-5a1f-4f4a-8902-a4a421446e6f_1.0.0.0_x86__1fadp56eckdn0</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>978ce514-5a1f-4f4a-8902-a4a421446e6f_1fadp56eckdn0!App</RegisteredUserModeAppID>
     <RegisteredPackageID>978ce514-5a1f-4f4a-8902-a4a421446e6f</RegisteredPackageID>
@@ -22,7 +22,7 @@
     <AppXManifest Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-11-09T19:12:21.689</Modified>
+      <Modified>2015-11-10T20:48:21.187</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -86,7 +86,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\entrypoint\Three Item Match.Windows10.exe">
       <PackagePath>entrypoint\Three Item Match.Windows10.exe</PackagePath>
-      <Modified>2015-11-09T19:12:20.230</Modified>
+      <Modified>2015-11-10T20:48:20.300</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -118,7 +118,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-11-09T02:25:02.895</Modified>
+      <Modified>2015-11-10T20:34:04.521</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
@@ -518,11 +518,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Three Item Match.Windows10.exe">
       <PackagePath>Three Item Match.Windows10.exe</PackagePath>
-      <Modified>2015-11-09T19:12:21.683</Modified>
+      <Modified>2015-11-10T20:48:21.185</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\Three Item Match.Windows10.xr.xml">
       <PackagePath>Three Item Match.Windows10.xr.xml</PackagePath>
-      <Modified>2015-11-09T02:25:01.965</Modified>
+      <Modified>2015-11-10T19:28:37.674</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x86\Debug\Core\WinMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

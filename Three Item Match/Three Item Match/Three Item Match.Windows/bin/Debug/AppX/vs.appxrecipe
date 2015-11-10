@@ -28,7 +28,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Three Item Match.Windows.exe">
       <PackagePath>Three Item Match.Windows.exe</PackagePath>
-      <Modified>2015-11-09T19:12:04.422</Modified>
+      <Modified>2015-11-10T06:21:37.655</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\WriteableBitmapEx.1.5.0.0\lib\NetCore45\WriteableBitmapEx.WinRT.dll">
       <PackagePath>WriteableBitmapEx.WinRT.dll</PackagePath>
@@ -68,7 +68,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Three Item Match.Windows.xr.xml">
       <PackagePath>Three Item Match.Windows.xr.xml</PackagePath>
-      <Modified>2015-11-09T19:10:17.477</Modified>
+      <Modified>2015-11-10T02:36:33.943</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -76,7 +76,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Card.xbf">
       <PackagePath>Card.xbf</PackagePath>
-      <Modified>2015-11-09T19:10:17.592</Modified>
+      <Modified>2015-11-10T02:36:34.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
