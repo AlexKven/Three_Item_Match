@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -55,6 +56,9 @@ namespace Three_Item_Match
 #endif
 
             Frame rootFrame = Window.Current.Content as Frame;
+#if WINDOWS_UWP
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(100, 100));
+#endif
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -95,7 +99,6 @@ namespace Three_Item_Match
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                await Card.RenderShapes();
                 if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
                 {
                     throw new Exception("Failed to create initial page");

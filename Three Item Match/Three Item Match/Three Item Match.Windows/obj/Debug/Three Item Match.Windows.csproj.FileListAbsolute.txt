@@ -6,6 +6,9 @@ C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\resources.pri
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\AppxManifest.xml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\Three Item Match.Windows.build.appxrecipe
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\WriteableBitmapEx.WinRT.dll
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\WriteableBitmapEx.WinRT.pdb
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\WriteableBitmapEx.WinRT.xml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\App.g.i.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\App.g.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\MainPage.g.i.cs
@@ -18,6 +21,7 @@ C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\XamlSaveStateFile.xml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Three Item Match.Windows.exe
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Three Item Match.Windows.pdb
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Three Item Match.Windows.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\priconfig.xml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\priconfig.xml.intermediate
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\layout.resfiles
@@ -35,8 +39,4 @@ C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Card.g.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Card.xaml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Card.xbf
-C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\WriteableBitmapEx.WinRT.dll
-C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\WriteableBitmapEx.WinRT.pdb
-C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\Debug\WriteableBitmapEx.WinRT.xml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Three Item Match.Windows.csprojResolveAssemblyReference.cache
-C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\Debug\Three Item Match.Windows.csproj.GenerateResource.Cache

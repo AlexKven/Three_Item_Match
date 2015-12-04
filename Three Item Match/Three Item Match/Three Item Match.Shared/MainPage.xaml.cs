@@ -5,12 +5,14 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -28,33 +30,45 @@ namespace Three_Item_Match
         public MainPage()
         {
             this.InitializeComponent();
+
+#if WINDOWS_UWP
+            FullScreenButton.Visibility = Visibility.Visible;
+#endif
+
             for (int i = 0; i < 81; i++)
             {
-                Cards[i] = new Card() { Face = CardFace.FromInt(i) };
-                MainCanvas.Children.Add(Cards[i]);
+                Image image = new Image();
+                Cards[i] = new Card(image, CardFace.FromInt(i));
+                MainCanvas.Children.Add(image);
             }
-            //Dealer = new DealArranger(Cards);
+            Dealer = new DealArranger(Cards);
+            Dealer.ShuffleDrawPile();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //await Dealer.DealCards(81);
-            await HelperFunctions.SaveImage(await Cards[80].GetImage(), "Back");
-            for (int i = 80; i >= 0; i--)
-            {
-                Cards[i].FaceUp = true;
-                await HelperFunctions.SaveImage(await Cards[i].GetImage(), "Card" + i.ToString());
-                MainCanvas.Children.Remove(Cards[i]);
-            }
+            Dealer.DealCards(1);
         }
 
         private void Canvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            //if (MainCanvas.ActualWidth > 0 && MainCanvas.ActualHeight > 0)
-            //{
-            //    Dealer.Width = MainCanvas.ActualWidth;
-            //    Dealer.Height = MainCanvas.ActualHeight;
-            //}
+            if (MainCanvas.ActualWidth > 0 && MainCanvas.ActualHeight > 0)
+            {
+                Dealer.Width = MainCanvas.ActualWidth;
+                Dealer.Height = MainCanvas.ActualHeight;
+            }
+        }
+
+        private void Button12_Click(object sender, RoutedEventArgs e)
+        {
+            Dealer.DealCards(12);
+        }
+
+        private void FullScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+#if WINDOWS_UWP
+            ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
+#endif
         }
     }
 }

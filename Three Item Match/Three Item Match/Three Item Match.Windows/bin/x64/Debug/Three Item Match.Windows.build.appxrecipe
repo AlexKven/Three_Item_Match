@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>BDELLIUM</Machine>
+    <WindowsUser>Alexander</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|x64</SolutionConfiguration>
+    <PackageArchitecture>x64</PackageArchitecture>
+    <PackageIdentityName>6bd9a2f1-9dfe-4cdd-8776-c4277b8bc065</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.exe">
+      <PackagePath>Three Item Match.Windows.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\WriteableBitmapEx.1.5.0.0\lib\NetCore45\WriteableBitmapEx.WinRT.dll">
+      <PackagePath>WriteableBitmapEx.WinRT.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Back.png">
+      <PackagePath>Assets\Back.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card0.png">
+      <PackagePath>Assets\Card0.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card1.png">
+      <PackagePath>Assets\Card1.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card10.png">
+      <PackagePath>Assets\Card10.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card11.png">
+      <PackagePath>Assets\Card11.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card12.png">
+      <PackagePath>Assets\Card12.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card13.png">
+      <PackagePath>Assets\Card13.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card14.png">
+      <PackagePath>Assets\Card14.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card15.png">
+      <PackagePath>Assets\Card15.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card16.png">
+      <PackagePath>Assets\Card16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card17.png">
+      <PackagePath>Assets\Card17.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card18.png">
+      <PackagePath>Assets\Card18.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card19.png">
+      <PackagePath>Assets\Card19.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card2.png">
+      <PackagePath>Assets\Card2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card20.png">
+      <PackagePath>Assets\Card20.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card21.png">
+      <PackagePath>Assets\Card21.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card22.png">
+      <PackagePath>Assets\Card22.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card23.png">
+      <PackagePath>Assets\Card23.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card24.png">
+      <PackagePath>Assets\Card24.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card25.png">
+      <PackagePath>Assets\Card25.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card26.png">
+      <PackagePath>Assets\Card26.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card27.png">
+      <PackagePath>Assets\Card27.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card28.png">
+      <PackagePath>Assets\Card28.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card29.png">
+      <PackagePath>Assets\Card29.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card3.png">
+      <PackagePath>Assets\Card3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card30.png">
+      <PackagePath>Assets\Card30.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card31.png">
+      <PackagePath>Assets\Card31.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card32.png">
+      <PackagePath>Assets\Card32.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card33.png">
+      <PackagePath>Assets\Card33.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card34.png">
+      <PackagePath>Assets\Card34.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card35.png">
+      <PackagePath>Assets\Card35.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card36.png">
+      <PackagePath>Assets\Card36.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card37.png">
+      <PackagePath>Assets\Card37.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card38.png">
+      <PackagePath>Assets\Card38.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card39.png">
+      <PackagePath>Assets\Card39.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card4.png">
+      <PackagePath>Assets\Card4.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card40.png">
+      <PackagePath>Assets\Card40.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card41.png">
+      <PackagePath>Assets\Card41.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card42.png">
+      <PackagePath>Assets\Card42.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card43.png">
+      <PackagePath>Assets\Card43.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card44.png">
+      <PackagePath>Assets\Card44.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card45.png">
+      <PackagePath>Assets\Card45.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card46.png">
+      <PackagePath>Assets\Card46.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card47.png">
+      <PackagePath>Assets\Card47.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card48.png">
+      <PackagePath>Assets\Card48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card49.png">
+      <PackagePath>Assets\Card49.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card5.png">
+      <PackagePath>Assets\Card5.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card50.png">
+      <PackagePath>Assets\Card50.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card51.png">
+      <PackagePath>Assets\Card51.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card52.png">
+      <PackagePath>Assets\Card52.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card53.png">
+      <PackagePath>Assets\Card53.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card54.png">
+      <PackagePath>Assets\Card54.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card55.png">
+      <PackagePath>Assets\Card55.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card56.png">
+      <PackagePath>Assets\Card56.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card57.png">
+      <PackagePath>Assets\Card57.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card58.png">
+      <PackagePath>Assets\Card58.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card59.png">
+      <PackagePath>Assets\Card59.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card6.png">
+      <PackagePath>Assets\Card6.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card60.png">
+      <PackagePath>Assets\Card60.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card61.png">
+      <PackagePath>Assets\Card61.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card62.png">
+      <PackagePath>Assets\Card62.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card63.png">
+      <PackagePath>Assets\Card63.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card64.png">
+      <PackagePath>Assets\Card64.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card65.png">
+      <PackagePath>Assets\Card65.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card66.png">
+      <PackagePath>Assets\Card66.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card67.png">
+      <PackagePath>Assets\Card67.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card68.png">
+      <PackagePath>Assets\Card68.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card69.png">
+      <PackagePath>Assets\Card69.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card7.png">
+      <PackagePath>Assets\Card7.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card70.png">
+      <PackagePath>Assets\Card70.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card71.png">
+      <PackagePath>Assets\Card71.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card72.png">
+      <PackagePath>Assets\Card72.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card73.png">
+      <PackagePath>Assets\Card73.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card74.png">
+      <PackagePath>Assets\Card74.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card75.png">
+      <PackagePath>Assets\Card75.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card76.png">
+      <PackagePath>Assets\Card76.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card77.png">
+      <PackagePath>Assets\Card77.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card78.png">
+      <PackagePath>Assets\Card78.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card79.png">
+      <PackagePath>Assets\Card79.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card8.png">
+      <PackagePath>Assets\Card8.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card80.png">
+      <PackagePath>Assets\Card80.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card9.png">
+      <PackagePath>Assets\Card9.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Diamond.bmp">
+      <PackagePath>Assets\Diamond.bmp</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Oval.bmp">
+      <PackagePath>Assets\Oval.bmp</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Squiggle.bmp">
+      <PackagePath>Assets\Squiggle.bmp</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.xr.xml">
+      <PackagePath>Three Item Match.Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Card.xbf">
+      <PackagePath>Card.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

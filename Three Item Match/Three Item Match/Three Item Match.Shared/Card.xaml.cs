@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
-using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -17,134 +14,50 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml.Shapes;
-using static System.Math;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace Three_Item_Match
 {
-    public sealed partial class Card : UserControl
+    public sealed partial class Card : DependencyObject
     {
         public Card()
         {
             this.InitializeComponent();
-            OnFaceChanged();
-            Storyboard.SetTarget(FlipAnimation, Projection);
-            Storyboard.SetTargetProperty(FlipAnimation, "RotationY");
-            FlipStoryboard.Children.Add(FlipAnimation);
-            this.Width = 200;
-            this.Height = 300;
-            MainGrid.Children.Remove(BackImage);
-            MainGrid.Children.Remove(FrontImage);
         }
+
+        public const double WIDTH = 300;
+        public const double HEIGHT = 200;
+
+        private bool FaceVisible = false;
 
         private DoubleAnimation FlipAnimation = new DoubleAnimation() { Duration = TimeSpan.FromMilliseconds(100) };
         Storyboard FlipStoryboard = new Storyboard();
 
-        private CardFace _Face;
-        public CardFace Face
+        public Card(Image sourceImage, CardFace face)
         {
-            get { return _Face; }
-            set
-            {
-                _Face = value;
-                OnFaceChanged();
-            }
+            SourceImage = sourceImage;
+            Face = face;
+            SourceImage.Projection = Projection;
+            SourceImage.Width = 200;
+            SourceImage.Height = 300;
+            SetImage("Back.png");
+
+            Storyboard.SetTarget(FlipAnimation, Projection);
+            Storyboard.SetTargetProperty(FlipAnimation, "RotationY");
+            FlipStoryboard.Children.Add(FlipAnimation);
         }
 
-        private void OnFaceChanged()
+        private void SetImage(string imageName)
         {
-            int margin = 10;
-            int numRows = (int)Face.Number + 1;
-            ShapeGrid.Children.Clear();
-            ShapeGrid.RowDefinitions.Clear();
-            ShapeGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
-            if (numRows >= 2)
-            {
-                ShapeGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(margin) });
-                ShapeGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
-            }
-            if (numRows >= 3)
-            {
-                ShapeGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(margin) });
-                ShapeGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
-            }
-            int num = (int)Face.Shape + 3 * (int)Face.Fill;
-            Color color = new Color();
-            switch (Face.Color)
-            {
-                case CardColor.Green:
-                    color = Colors.Green;
-                    break;
-                case CardColor.Purple:
-                    color = Colors.Purple;
-                    break;
-                case CardColor.Red:
-                    color = Colors.Red;
-                    break;
-            }
-            for (int i = 0; i < numRows; i++)
-            {
-                Rectangle colorRect = new Rectangle() { Fill = new SolidColorBrush(color), Margin = new Thickness(1,1,2,1) };
-                Image imgCtrl = new Image() { Source = RenderedShapes[num], Stretch = Stretch.Uniform, VerticalAlignment = VerticalAlignment.Stretch, HorizontalAlignment = HorizontalAlignment.Stretch };
-                Grid.SetRow(imgCtrl, 2 * i);
-                Grid.SetRow(colorRect, 2 * i);
-                ShapeGrid.Children.Add(colorRect);
-                ShapeGrid.Children.Add(imgCtrl);
-            }
+            BitmapImage img = new BitmapImage();
+            string pth = Windows.ApplicationModel.Package.Current.InstalledLocation.Path + "\\Assets\\" + imageName;
+            img.UriSource = new Uri(pth, UriKind.Absolute);
+            SourceImage.Source = img;
         }
 
-        public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register("Scale", typeof(double), typeof(Card), new PropertyMetadata(1, OnScaleChangedStatic));
-
-        private static ImageSource[] RenderedShapes = new ImageSource[9];
-
-        public static async Task RenderShapes()
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                int num = i;
-                CardShape shape = (CardShape)(num % 3);
-                num /= 3;
-                CardFill fill = (CardFill)(num % 3);
-
-                WriteableBitmap image = await WriteableBitmapExtensions.FromContent(null, new Uri($"ms-appx:///Assets/{shape.ToString()}.bmp"));
-                image.ForEach((int x, int y, Color clr) =>
-                {
-                    if (clr == Colors.Black)
-                        return Colors.Transparent;
-                    else if (clr == Colors.White)
-                        return Colors.White;
-                    else if (fill == CardFill.Solid)
-                        return Colors.Transparent;
-                    else if (fill == CardFill.Empty)
-                        return Colors.White;
-                    else if (x % 64 < 32)
-                        return Colors.Transparent;
-                    else
-                        return Colors.White;
-                });
-                RenderedShapes[i] = image;
-            }
-        }
-
-        public double Scale
-        {
-            get { return (double)GetValue(ScaleProperty); }
-            set { SetValue(ScaleProperty, value); }
-        }
-
-        private static void OnScaleChangedStatic(DependencyObject sender, DependencyPropertyChangedEventArgs e)
-        {
-            Card typedSender = (Card)sender;
-
-            typedSender.Width = typedSender.Scale * 200;
-            typedSender.Height = typedSender.Scale * 300;
-            double scl = typedSender.Scale * 200 / 230;
-            typedSender.InnerScale.ScaleX = scl;
-            typedSender.InnerScale.ScaleY = scl;
-            typedSender.MainGrid.Margin = new Thickness((typedSender.Width - 200 * scl) / 2, (typedSender.Height - 300 * scl) / 2, 0, 0);
-        }
+        public Image SourceImage { get; private set; }
+        public CardFace Face { get; private set; }
 
         private bool _FaceUp = false;
         public bool FaceUp
@@ -154,8 +67,79 @@ namespace Three_Item_Match
             {
                 StopFlip();
                 _FaceUp = value;
-                FrontBorder.Visibility = FaceUp ? Visibility.Visible : Visibility.Collapsed;
-                BackBorder.Visibility = FaceUp ? Visibility.Collapsed : Visibility.Visible;
+                SetImage(value ? "Card" + Face.ToInt().ToString() + ".png" : "Back.png");
+            }
+        }
+        
+        private PlaneProjection Projection = new PlaneProjection() { CenterOfRotationX = 0.5, CenterOfRotationY = 0.5, CenterOfRotationZ = 0.5 };
+
+        public static readonly DependencyProperty XProperty = DependencyProperty.Register("X", typeof(double), typeof(Card), new PropertyMetadata((double)0, OnXChangedStatic));
+        public static readonly DependencyProperty YProperty = DependencyProperty.Register("Y", typeof(double), typeof(Card), new PropertyMetadata((double)0, OnYChangedStatic));
+        public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register("Scale", typeof(double), typeof(Card), new PropertyMetadata((double)1, OnScaleChangedStatic));
+        public static readonly DependencyProperty AngleProperty = DependencyProperty.Register("Angle", typeof(double), typeof(Card), new PropertyMetadata((double)0, OnAngleChangedStatic));
+
+        [IndependentlyAnimatable]
+        public double X
+        {
+            get { return (double)GetValue(XProperty); }
+            set { SetValue(XProperty, value); }
+        }
+
+        [IndependentlyAnimatable]
+        public double Y
+        {
+            get { return (double)GetValue(YProperty); }
+            set { SetValue(YProperty, value); }
+        }
+
+        [IndependentlyAnimatable]
+        public double Angle
+        {
+            get { return (double)GetValue(AngleProperty); }
+            set { SetValue(AngleProperty, value); }
+        }
+
+        [IndependentlyAnimatable]
+        public double Scale
+        {
+            get { return (double)GetValue(ScaleProperty); }
+            set { SetValue(ScaleProperty, value); }
+        }
+
+        public static void OnXChangedStatic(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            Card typedSender = (Card)sender;
+            typedSender.UpdatePosition(false);
+        }
+
+        public static void OnYChangedStatic(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            Card typedSender = (Card)sender;
+            typedSender.UpdatePosition(false);
+        }
+
+        public static void OnScaleChangedStatic(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            Card typedSender = (Card)sender;
+            typedSender.UpdatePosition(true);
+            //typedSender.Rotation.CenterX = typedSender.SourceImage.Width / 2;
+            //typedSender.Rotation.CenterY = typedSender.SourceImage.Height / 2;
+        }
+
+        public static void OnAngleChangedStatic(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            Card typedSender = (Card)sender;
+            typedSender.Projection.RotationZ = (double)e.NewValue;
+        }
+
+        private void UpdatePosition(bool updateSize)
+        {
+            Canvas.SetLeft(SourceImage, X - WIDTH * Scale / 2);
+            Canvas.SetTop(SourceImage, Y - HEIGHT * Scale / 2);
+            if (updateSize)
+            {
+                SourceImage.Width = WIDTH * Scale;
+                SourceImage.Height = HEIGHT * Scale;
             }
         }
 
@@ -170,19 +154,18 @@ namespace Three_Item_Match
         private void StopFlip()
         {
             FlipStoryboard.Completed -= FlipStoryboard_Completed;
-            if (FrontBorder.Visibility == (FaceUp ? Visibility.Visible : Visibility.Collapsed))
+            if (FaceVisible == FaceUp)
                 FlipStoryboard.SkipToFill();
             else
             {
                 FlipStoryboard.Seek(TimeSpan.Zero);
-                FrontBorder.Visibility = FaceUp ? Visibility.Visible : Visibility.Collapsed;
-                BackBorder.Visibility = FaceUp ? Visibility.Collapsed : Visibility.Visible;
             }
+            FaceUp = FaceUp;
         }
 
         private void Flip()
         {
-            StopFlip();
+            //StopFlip();
             _FaceUp = !FaceUp;
 
             FlipAnimation.To = 90;
@@ -194,78 +177,12 @@ namespace Three_Item_Match
 
         private void FlipStoryboard_Completed(object sender, object e)
         {
-            FrontBorder.Visibility = FaceUp ? Visibility.Visible : Visibility.Collapsed;
-            BackBorder.Visibility = FaceUp ? Visibility.Collapsed : Visibility.Visible;
+            FaceVisible = FaceUp;
+            SetImage(FaceUp ? "Card" + Face.ToInt().ToString() + ".png" : "Back.png");
             FlipStoryboard.Completed -= FlipStoryboard_Completed;
             FlipAnimation.To = 0;
             FlipAnimation.From = -90;
             FlipStoryboard.Begin();
-        }
-
-        public async Task CacheImage()
-        {
-            if (FrontBorder.Visibility == Visibility.Collapsed && BackBorder.Visibility == Visibility.Collapsed)
-                return;
-            if (FaceUp)
-            {
-                await CacheFrontImage();
-                await CacheBackImage();
-            }
-            else
-            {
-                await CacheBackImage();
-                await CacheFrontImage();
-            }
-        }
-
-        public void DecacheImage()
-        {
-            if (FrontBorder.Visibility != Visibility.Visible && BackBorder.Visibility != Visibility.Visible)
-                return;
-            MainGrid.Children.Add(BackBorder);
-            MainGrid.Children.Add(FrontBorder);
-            MainGrid.Children.Remove(BackImage);
-            MainGrid.Children.Remove(FrontImage);
-        }
-
-        private async Task CacheFrontImage()
-        {
-            double width = Scale * 200 * 200 / 230;
-            double height = Scale * 300 * 200 / 230;
-            RenderTargetBitmap rtb = new RenderTargetBitmap();
-            FrontBorder.Visibility = Visibility.Visible;
-            MainGrid.InvalidateMeasure();
-            MainGrid.InvalidateArrange();
-            await rtb.RenderAsync(FrontBorder);
-            FrontImage.Source = rtb;
-            MainGrid.Children.Add(FrontImage);
-            MainGrid.Children.Remove(FrontBorder);
-        }
-
-        private async Task CacheBackImage()
-        {
-            double width = Scale * 200 * 200 / 230;
-            double height = Scale * 300 * 200 / 230;
-            RenderTargetBitmap rtb = new RenderTargetBitmap();
-            BackImage.Visibility = Visibility.Visible;
-            MainGrid.InvalidateMeasure();
-            MainGrid.InvalidateArrange();
-            await rtb.RenderAsync(BackBorder);
-            BackImage.Source = rtb;
-            MainGrid.Children.Add(BackImage);
-            MainGrid.Children.Remove(BackBorder);
-        }
-
-        public async Task<RenderTargetBitmap> GetImage()
-        {
-            RenderTargetBitmap rtb = new RenderTargetBitmap();
-            if (FaceUp)
-                await rtb.RenderAsync(FrontBorder);
-            else
-                await rtb.RenderAsync(BackBorder);
-            WriteableBitmap wbm = new WriteableBitmap(300, 450);
-            
-            return rtb;
         }
     }
 }

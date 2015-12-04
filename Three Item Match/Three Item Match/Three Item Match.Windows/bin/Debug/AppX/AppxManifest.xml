@@ -36,8 +36,8 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v4.5.1" />
     <build:Item Name="VisualStudio" Version="14.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2015" />
-    <build:Item Name="OperatingSystem" Version="10.0.10565.0 (th2_release.151006-2014)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.23311.4" />
+    <build:Item Name="OperatingSystem" Version="10.0.10586.0 (th2_release.151029-1700)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.23315.0" />
     <build:Item Name="ProjectGUID" Value="{EA8C2FA3-D702-4A1A-BEAA-1B28CC5D496A}" />
     <build:Item Name="Microsoft.Windows.UI.Xaml.81.Build.Tasks.dll" Version="14.0.22705.1" />
     <build:Item Name="MakePri.exe" Version="6.3.9600.17336 (winblue.150226-1500)" />

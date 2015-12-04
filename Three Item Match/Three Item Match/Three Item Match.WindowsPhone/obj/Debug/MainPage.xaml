@@ -12,10 +12,15 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:ConnectionId='1' VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"                      RequestedTheme="Dark">Randomize</Button>
-        <Canvas x:ConnectionId='2' x:Name="MainCanvas" Grid.Row="1"                                 >
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button x:ConnectionId='2' Margin="10"                      RequestedTheme="Dark">Deal 1</Button>
+            <Button x:ConnectionId='3' Margin="10"                        RequestedTheme="Dark">Deal 12</Button>
+            <Button x:ConnectionId='4' Margin="10"                                RequestedTheme="Dark" Visibility="Collapsed" x:Name="FullScreenButton">Fullscreen</Button>
+        </StackPanel>
+        <Canvas x:ConnectionId='1' x:Name="MainCanvas" Grid.Row="1"                                 >
 
         </Canvas>
+        
     </Grid>
 </Page>
 
