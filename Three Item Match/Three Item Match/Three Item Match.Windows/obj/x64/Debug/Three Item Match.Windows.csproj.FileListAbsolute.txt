@@ -1,6 +1,7 @@
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\App.xbf
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Card.xbf
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\MainPage.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\ScaleDownControl.xbf
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.xr.xml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.exe
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.pdb
@@ -16,14 +17,18 @@ C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\Card.g.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\MainPage.g.i.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\MainPage.g.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\ScaleDownControl.g.i.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\ScaleDownControl.g.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\XamlTypeInfo.g.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\App.xaml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\Card.xaml
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\MainPage.xaml
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\ScaleDownControl.xaml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\App.xbf
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\Card.xbf
-C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\XamlSaveStateFile.xml
-C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\MainPage.xaml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\MainPage.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\ScaleDownControl.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\XamlSaveStateFile.xml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\Three Item Match.Windows.exe
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\Three Item Match.Windows.pdb
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\Three Item Match.Windows.csproj.GenerateResource.Cache
@@ -39,3 +44,9 @@ C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\qualifiers.txt.intermediate
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\Three Item Match.Windows.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\SettingsPage.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\SettingsPage.g.i.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\SettingsPage.g.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\SettingsPage.xaml
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\SettingsPage.xbf

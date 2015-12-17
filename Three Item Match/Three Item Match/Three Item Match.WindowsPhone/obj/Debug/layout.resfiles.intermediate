@@ -83,7 +83,9 @@ Assets\Card9.png
 Assets\Diamond.bmp
 Assets\Oval.bmp
 Assets\Squiggle.bmp
+Assets\HintIcon.png
 Assets\Logo.scale-240.png
+Assets\NoSetsIcon.png
 Assets\SmallLogo.scale-240.png
 Assets\SplashScreen.scale-240.png
 Assets\Square71x71Logo.scale-240.png
@@ -92,4 +94,6 @@ Assets\WideLogo.scale-240.png
 App.xbf
 Card.xbf
 MainPage.xbf
+ScaleDownControl.xbf
+SettingsPage.xbf
 Three Item Match.WindowsPhone.xr.xml

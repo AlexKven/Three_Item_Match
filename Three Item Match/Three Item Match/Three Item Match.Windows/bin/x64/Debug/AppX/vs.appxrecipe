@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>6bd9a2f1-9dfe-4cdd-8776-c4277b8bc065</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\obj\x64\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>F9D93AF466ED8657EF3694033EDD23C55980B41D15F3FF4A8DD516DE0001DC54</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>023A7AF1C8E73CDBC7E2BB7EC02674A283B46FBB67B989E88922EF3824B2EF1A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>6bd9a2f1-9dfe-4cdd-8776-c4277b8bc065_1.0.0.0_x64__1fadp56eckdn0</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>6bd9a2f1-9dfe-4cdd-8776-c4277b8bc065_1fadp56eckdn0!App</RegisteredUserModeAppID>
     <RegisteredPackageID>6bd9a2f1-9dfe-4cdd-8776-c4277b8bc065</RegisteredPackageID>
@@ -22,22 +22,30 @@
     <AppXManifest Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-04T03:45:57.024</Modified>
+      <Modified>2015-12-14T01:07:05.017</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.exe">
       <PackagePath>Three Item Match.Windows.exe</PackagePath>
-      <Modified>2015-12-04T03:45:56.196</Modified>
+      <Modified>2015-12-14T01:07:04.640</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\WriteableBitmapEx.1.5.0.0\lib\NetCore45\WriteableBitmapEx.WinRT.dll">
       <PackagePath>WriteableBitmapEx.WinRT.dll</PackagePath>
       <Modified>2015-11-08T02:44:47.446</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\HintIcon.png">
+      <PackagePath>Assets\HintIcon.png</PackagePath>
+      <Modified>2015-12-12T23:04:17.385</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-07T05:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\NoSetsIcon.png">
+      <PackagePath>Assets\NoSetsIcon.png</PackagePath>
+      <Modified>2015-12-12T23:04:17.466</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
@@ -88,15 +96,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card15.png">
       <PackagePath>Assets\Card15.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:38:07.573</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card16.png">
       <PackagePath>Assets\Card16.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:38:21.502</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card17.png">
       <PackagePath>Assets\Card17.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:38:39.307</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card18.png">
       <PackagePath>Assets\Card18.png</PackagePath>
@@ -128,15 +136,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card24.png">
       <PackagePath>Assets\Card24.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:38:53.971</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card25.png">
       <PackagePath>Assets\Card25.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:39:05.339</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card26.png">
       <PackagePath>Assets\Card26.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:39:14.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card27.png">
       <PackagePath>Assets\Card27.png</PackagePath>
@@ -168,15 +176,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card33.png">
       <PackagePath>Assets\Card33.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:43:15.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card34.png">
       <PackagePath>Assets\Card34.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:42:25.723</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card35.png">
       <PackagePath>Assets\Card35.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:41:26.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card36.png">
       <PackagePath>Assets\Card36.png</PackagePath>
@@ -208,15 +216,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card42.png">
       <PackagePath>Assets\Card42.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:44:21.342</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card43.png">
       <PackagePath>Assets\Card43.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:44:35.472</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card44.png">
       <PackagePath>Assets\Card44.png</PackagePath>
-      <Modified>2015-11-10T20:52:24.000</Modified>
+      <Modified>2015-12-10T21:45:02.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card45.png">
       <PackagePath>Assets\Card45.png</PackagePath>
@@ -248,15 +256,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card51.png">
       <PackagePath>Assets\Card51.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:45:35.588</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card52.png">
       <PackagePath>Assets\Card52.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:45:45.270</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card53.png">
       <PackagePath>Assets\Card53.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:45:59.856</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card54.png">
       <PackagePath>Assets\Card54.png</PackagePath>
@@ -284,19 +292,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card6.png">
       <PackagePath>Assets\Card6.png</PackagePath>
-      <Modified>2015-11-10T20:52:26.000</Modified>
+      <Modified>2015-12-10T21:29:54.859</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card60.png">
       <PackagePath>Assets\Card60.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:47:58.930</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card61.png">
       <PackagePath>Assets\Card61.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:49:07.158</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card62.png">
       <PackagePath>Assets\Card62.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:50:14.064</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card63.png">
       <PackagePath>Assets\Card63.png</PackagePath>
@@ -324,19 +332,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card69.png">
       <PackagePath>Assets\Card69.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:51:30.913</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card7.png">
       <PackagePath>Assets\Card7.png</PackagePath>
-      <Modified>2015-11-10T20:52:26.000</Modified>
+      <Modified>2015-12-10T21:33:12.693</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card70.png">
       <PackagePath>Assets\Card70.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:51:42.992</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card71.png">
       <PackagePath>Assets\Card71.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:52:07.678</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card72.png">
       <PackagePath>Assets\Card72.png</PackagePath>
@@ -364,19 +372,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card78.png">
       <PackagePath>Assets\Card78.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:52:36.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card79.png">
       <PackagePath>Assets\Card79.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:52:47.831</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card8.png">
       <PackagePath>Assets\Card8.png</PackagePath>
-      <Modified>2015-11-10T20:52:26.000</Modified>
+      <Modified>2015-12-10T21:35:48.162</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card80.png">
       <PackagePath>Assets\Card80.png</PackagePath>
-      <Modified>2015-11-10T20:52:22.000</Modified>
+      <Modified>2015-12-10T21:53:00.108</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Shared\Assets\Card9.png">
       <PackagePath>Assets\Card9.png</PackagePath>
@@ -396,23 +404,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.xr.xml">
       <PackagePath>Three Item Match.Windows.xr.xml</PackagePath>
-      <Modified>2015-12-04T03:45:56.001</Modified>
+      <Modified>2015-12-14T01:07:04.341</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2015-12-04T03:45:56.075</Modified>
+      <Modified>2015-12-14T00:37:01.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Card.xbf">
       <PackagePath>Card.xbf</PackagePath>
-      <Modified>2015-12-04T03:45:56.076</Modified>
+      <Modified>2015-12-14T00:37:01.641</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2015-12-04T03:45:56.077</Modified>
+      <Modified>2015-12-14T00:37:01.641</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\ScaleDownControl.xbf">
+      <PackagePath>ScaleDownControl.xbf</PackagePath>
+      <Modified>2015-12-14T00:37:01.656</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\SettingsPage.xbf">
+      <PackagePath>SettingsPage.xbf</PackagePath>
+      <Modified>2015-12-14T01:07:04.446</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-04T03:45:56.913</Modified>
+      <Modified>2015-12-14T01:07:04.902</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

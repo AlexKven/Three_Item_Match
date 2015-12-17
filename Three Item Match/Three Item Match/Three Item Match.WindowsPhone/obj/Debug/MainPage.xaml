@@ -5,22 +5,24 @@
     xmlns:local="using:Three_Item_Match"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
-    <Grid Background="#222266">
+    mc:Ignorable="d" RequestedTheme="Dark">
+    <Page.Resources>
+        <Color x:Key="BGColor">#222266</Color>
+    </Page.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource BGColor}"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Button x:ConnectionId='2' Margin="10"                      RequestedTheme="Dark">Deal 1</Button>
-            <Button x:ConnectionId='3' Margin="10"                        RequestedTheme="Dark">Deal 12</Button>
-            <Button x:ConnectionId='4' Margin="10"                                RequestedTheme="Dark" Visibility="Collapsed" x:Name="FullScreenButton">Fullscreen</Button>
-        </StackPanel>
-        <Canvas x:ConnectionId='1' x:Name="MainCanvas" Grid.Row="1"                                 >
-
+        <Canvas x:ConnectionId='1' x:Name="MainCanvas" Grid.Row="0"                                 >
+            <TextBlock x:Name="TimeBlock"/>
         </Canvas>
-        
+        <!--<local:ScaleDownControl Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ContentMinWidth="700" ContentMinHeight="700">
+            <Rectangle Fill="Red"/>
+        </local:ScaleDownControl>-->
     </Grid>
 </Page>
 

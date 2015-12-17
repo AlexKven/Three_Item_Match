@@ -38,7 +38,7 @@ namespace Three_Item_Match
         }
     }
 
-    public enum CardNumber { Single, Double, Triple }
+    public enum CardNumber { One, Two, Three }
 
     public enum CardShape { Diamond, Squiggle, Oval }
 

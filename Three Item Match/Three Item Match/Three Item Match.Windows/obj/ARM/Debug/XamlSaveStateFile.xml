@@ -1,5 +1,10 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
+    <LocalAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\three item match\three item match.windows\obj\arm\debug\intermediatexaml\three item match.windows.exe" HashGuid="d20cdf21-aef1-c323-32ed-07c16d0fce13" />
+    <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
+    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\lumiaimagingsdk.win81.3.0.593\lib\win81-hidden\arm\lumia.imaging.managed.dll" HashGuid="c59bc4aa-5971-92f2-a89e-f63d1bb665d3" />
+    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\lumiaimagingsdk.win81.3.0.593\lib\win81\arm\lumia.imaging.winmd" HashGuid="939b8e69-ceb2-f459-1a36-fbae747b3bc7" />
+    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\lumiaimagingsdk.win81.3.0.593\lib\win81\arm\lumia.interopservices.windowsruntime.winmd" HashGuid="be026b97-4e17-03e1-494d-e8a25f3c2582" />
     <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\writeablebitmapex.1.5.0.0\lib\netcore45\writeablebitmapex.winrt.dll" HashGuid="6dd9ab30-a8ea-e714-1c9c-a07c544a2da6" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

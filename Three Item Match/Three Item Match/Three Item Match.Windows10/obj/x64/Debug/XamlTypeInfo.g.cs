@@ -132,7 +132,7 @@ namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[11];
+            _typeNameTable = new string[16];
             _typeNameTable[0] = "Three_Item_Match.Card";
             _typeNameTable[1] = "Windows.UI.Xaml.DependencyObject";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.Image";
@@ -141,11 +141,16 @@ namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
             _typeNameTable[5] = "Object";
             _typeNameTable[6] = "Boolean";
             _typeNameTable[7] = "Double";
-            _typeNameTable[8] = "Three_Item_Match.MainPage";
-            _typeNameTable[9] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[10] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[8] = "Windows.UI.Color";
+            _typeNameTable[9] = "Byte";
+            _typeNameTable[10] = "Three_Item_Match.MainPage";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[12] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[13] = "Three_Item_Match.ScaleDownControl";
+            _typeNameTable[14] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[15] = "Three_Item_Match.SettingsPage";
 
-            _typeTable = new global::System.Type[11];
+            _typeTable = new global::System.Type[16];
             _typeTable[0] = typeof(global::Three_Item_Match.Card);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.DependencyObject);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.Image);
@@ -154,9 +159,14 @@ namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
             _typeTable[5] = typeof(global::System.Object);
             _typeTable[6] = typeof(global::System.Boolean);
             _typeTable[7] = typeof(global::System.Double);
-            _typeTable[8] = typeof(global::Three_Item_Match.MainPage);
-            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[8] = typeof(global::Windows.UI.Color);
+            _typeTable[9] = typeof(global::System.Byte);
+            _typeTable[10] = typeof(global::Three_Item_Match.MainPage);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[13] = typeof(global::Three_Item_Match.ScaleDownControl);
+            _typeTable[14] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[15] = typeof(global::Three_Item_Match.SettingsPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -192,7 +202,9 @@ namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
         }
 
         private object Activate_0_Card() { return new global::Three_Item_Match.Card(); }
-        private object Activate_8_MainPage() { return new global::Three_Item_Match.MainPage(); }
+        private object Activate_10_MainPage() { return new global::Three_Item_Match.MainPage(); }
+        private object Activate_13_ScaleDownControl() { return new global::Three_Item_Match.ScaleDownControl(); }
+        private object Activate_15_SettingsPage() { return new global::Three_Item_Match.SettingsPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -250,19 +262,54 @@ namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
                 xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  Three_Item_Match.MainPage
+            case 8:   //  Windows.UI.Color
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.AddMemberName("A");
+                userType.AddMemberName("B");
+                userType.AddMemberName("G");
+                userType.AddMemberName("R");
+                xamlType = userType;
+                break;
+
+            case 9:   //  Byte
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 10:   //  Three_Item_Match.MainPage
                 userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_MainPage;
+                userType.Activator = Activate_10_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Windows.UI.Xaml.Controls.Page
+            case 11:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  Windows.UI.Xaml.Controls.UserControl
+            case 12:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 13:   //  Three_Item_Match.ScaleDownControl
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
+                userType.Activator = Activate_13_ScaleDownControl;
+                userType.AddMemberName("ContentMinWidth");
+                userType.AddMemberName("ContentMinHeight");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  Windows.UI.Xaml.Controls.ContentControl
+                xamlType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Three_Item_Match.SettingsPage
+                userType = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_SettingsPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;
@@ -329,6 +376,66 @@ namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
             var that = (global::Three_Item_Match.Card)instance;
             that.Scale = (global::System.Double)Value;
         }
+        private object get_7_Color_A(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.A;
+        }
+        private void set_7_Color_A(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.A = (global::System.Byte)Value;
+        }
+        private object get_8_Color_B(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.B;
+        }
+        private void set_8_Color_B(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.B = (global::System.Byte)Value;
+        }
+        private object get_9_Color_G(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.G;
+        }
+        private void set_9_Color_G(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.G = (global::System.Byte)Value;
+        }
+        private object get_10_Color_R(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.R;
+        }
+        private void set_10_Color_R(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.R = (global::System.Byte)Value;
+        }
+        private object get_11_ScaleDownControl_ContentMinWidth(object instance)
+        {
+            var that = (global::Three_Item_Match.ScaleDownControl)instance;
+            return that.ContentMinWidth;
+        }
+        private void set_11_ScaleDownControl_ContentMinWidth(object instance, object Value)
+        {
+            var that = (global::Three_Item_Match.ScaleDownControl)instance;
+            that.ContentMinWidth = (global::System.Double)Value;
+        }
+        private object get_12_ScaleDownControl_ContentMinHeight(object instance)
+        {
+            var that = (global::Three_Item_Match.ScaleDownControl)instance;
+            return that.ContentMinHeight;
+        }
+        private void set_12_ScaleDownControl_ContentMinHeight(object instance, object Value)
+        {
+            var that = (global::Three_Item_Match.ScaleDownControl)instance;
+            that.ContentMinHeight = (global::System.Double)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -382,6 +489,42 @@ namespace Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_6_Card_Scale;
                 xamlMember.Setter = set_6_Card_Scale;
+                break;
+            case "Windows.UI.Color.A":
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "A", "Byte");
+                xamlMember.Getter = get_7_Color_A;
+                xamlMember.Setter = set_7_Color_A;
+                break;
+            case "Windows.UI.Color.B":
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "B", "Byte");
+                xamlMember.Getter = get_8_Color_B;
+                xamlMember.Setter = set_8_Color_B;
+                break;
+            case "Windows.UI.Color.G":
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "G", "Byte");
+                xamlMember.Getter = get_9_Color_G;
+                xamlMember.Setter = set_9_Color_G;
+                break;
+            case "Windows.UI.Color.R":
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "R", "Byte");
+                xamlMember.Getter = get_10_Color_R;
+                xamlMember.Setter = set_10_Color_R;
+                break;
+            case "Three_Item_Match.ScaleDownControl.ContentMinWidth":
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Three_Item_Match.ScaleDownControl");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "ContentMinWidth", "Double");
+                xamlMember.Getter = get_11_ScaleDownControl_ContentMinWidth;
+                xamlMember.Setter = set_11_ScaleDownControl_ContentMinWidth;
+                break;
+            case "Three_Item_Match.ScaleDownControl.ContentMinHeight":
+                userType = (global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Three_Item_Match.ScaleDownControl");
+                xamlMember = new global::Three_Item_Match.Windows10.Three_Item_Match_Windows10_XamlTypeInfo.XamlMember(this, "ContentMinHeight", "Double");
+                xamlMember.Getter = get_12_ScaleDownControl_ContentMinHeight;
+                xamlMember.Setter = set_12_ScaleDownControl_ContentMinHeight;
                 break;
             }
             return xamlMember;

@@ -10,36 +10,211 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using static System.Math;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Three_Item_Match
 {
     public class DealArranger
     {
-        private List<int> DrawnCards = new List<int>();
-        private List<int> DrawPile = new List<int>();
-        private List<Tuple<int, int, int>> CollectedSets = new List<Tuple<int, int, int>>();
-        private List<int> SelectedCards = new List<int>();
+        #region Properties
+        private List<int> _DrawnCards = new List<int>();
+        private List<int> _DrawPile = new List<int>();
+        private List<int> _SelectedCards = new List<int>();
+        private List<int> _HighlightedCards = new List<int>();
+        private List<SetPile> _CollectedSets = new List<SetPile>();
+        private List<SetPile> _MissedSets = new List<SetPile>();
+        private Tuple<int, int, int>[] _ShownSets = null;
+        private Card[] Cards;
+        private TextBlock TimeBlock;
+        private bool _SuspendRender = false;
+
+        private bool _ShowHighlights = false;
+
+        private bool _InstantDeal = false;
+
+        public Card this[int index]
+        {
+            get { return Cards[index]; }
+        }
+
+        public IReadOnlyList<int> DrawnCards
+        {
+            get { return new ReadOnlyCollection<int>(_DrawnCards); }
+        }
+
+        public IReadOnlyList<int> DrawPile
+        {
+            get { return new ReadOnlyCollection<int>(_DrawPile); }
+        }
+
+        public IReadOnlyList<int> SelectedCards
+        {
+            get { return new ReadOnlyCollection<int>(_SelectedCards); }
+        }
+
+        public IReadOnlyList<int> HighlightedCards
+        {
+            get { return new ReadOnlyCollection<int>(_HighlightedCards); }
+        }
+
+        public IReadOnlyList<SetPile> CollectedSets
+        {
+            get { return new ReadOnlyCollection<SetPile>(_CollectedSets); }
+        }
+
+        public IReadOnlyList<SetPile> MissedSets
+        {
+            get { return new ReadOnlyCollection<SetPile>(_MissedSets); }
+        }
+
+        public bool SuspendRender
+        {
+            get { return _SuspendRender; }
+            set
+            {
+                _SuspendRender = value;
+                if (!SuspendRender)
+                    ArrangeCards(true, CurrentAnimationTime, CurrentAnimationTime + CurrentAnimationTime);
+            }
+        }
+
+        public IReadOnlyList<Tuple<int, int, int>> ShownSets
+        {
+            get
+            {
+                if (_ShownSets == null)
+                    RefreshSets();
+                return new ReadOnlyCollection<Tuple<int, int, int>>(_ShownSets.ToList());
+            }
+        }
+
+        public bool ShowHighlights
+        {
+            get { return _ShowHighlights; }
+            set
+            {
+                _ShowHighlights = value;
+                ArrangeCards();
+            }
+        }
+
+        public bool InstantDeal
+        {
+            get { return _InstantDeal; }
+            set { _InstantDeal = value; }
+        }
+
+        public TimeSpan CurrentAnimationTime
+        {
+            get { return InstantDeal ? TimeSpan.Zero : TimeSpan.FromMilliseconds(ANIMATION_TIME); }
+        }
+
+        public TimeSpan CurrentCascadeTime
+        {
+            get { return InstantDeal ? TimeSpan.Zero : TimeSpan.FromMilliseconds(CASC_TIME); }
+        }
+        #endregion
+
+        #region Public Methods
+        public void Select(params int[] cards)
+        {
+            _SelectedCards.Clear();
+            _SelectedCards.AddRange(cards);
+            ArrangeCards();
+            if (SelectionChanged != null)
+                SelectionChanged(this, new EventArgs());
+        }
+
+        public void Highlight(params int[] cards)
+        {
+            _HighlightedCards.Clear();
+            _HighlightedCards.AddRange(cards);
+            ArrangeCards();
+            if (HighlightedCardsChanged != null)
+                HighlightedCardsChanged(this, new EventArgs());
+        }
+
+        public void Dehighlight(params int[] cards)
+        {
+            foreach (var card in cards)
+            {
+                if (_HighlightedCards.Contains(card))
+                    _HighlightedCards.Remove(card);
+                ArrangeCards();
+                if (HighlightedCardsChanged != null)
+                    HighlightedCardsChanged(this, new EventArgs());
+            }
+        }
+
+        public void Deselect(params int[] cards)
+        {
+            foreach (var card in cards)
+            {
+                if (_SelectedCards.Contains(card))
+                    _SelectedCards.Remove(card);
+                ArrangeCards();
+                if (SelectionChanged != null)
+                    SelectionChanged(this, new EventArgs());
+            }
+        }
+
+        public void CollectSet(int card1, int card2, int card3)
+        {
+            _DrawnCards.Remove(card1);
+            _DrawnCards.Remove(card2);
+            _DrawnCards.Remove(card3);
+            _ShownSets = null;
+            _CollectedSets.Add(new SetPile(card1, card2, card3, new Random().NextDouble() * 360));
+            Deselect(card1, card2, card3);
+            Cards[card1].SourceImage.Opacity = 1;
+            Cards[card2].SourceImage.Opacity = 1;
+            Cards[card3].SourceImage.Opacity = 1;
+            if (DrawnCardsChanged != null) DrawnCardsChanged(this, new EventArgs());
+        }
+
+        public void MissSet(int card1, int card2, int card3)
+        {
+            _DrawnCards.Remove(card1);
+            _DrawnCards.Remove(card2);
+            _DrawnCards.Remove(card3);
+            _ShownSets = null;
+            _MissedSets.Add(new SetPile(card1, card2, card3, new Random().NextDouble() * 360));
+            Deselect(card1, card2, card3);
+            Cards[card1].SourceImage.Opacity = 1;
+            Cards[card2].SourceImage.Opacity = 1;
+            Cards[card3].SourceImage.Opacity = 1;
+            if (DrawnCardsChanged != null) DrawnCardsChanged(this, new EventArgs());
+        }
+        #endregion
+
+        #region Events
+        public event EventHandler SelectionChanged;
+        public event EventHandler HighlightedCardsChanged;
+        public event EventHandler DrawnCardsChanged;
+        #endregion
 
         private DateTime LastResizeTime = DateTime.Now;
 
         const double ANIMATION_TIME = 150;
+        const double CASC_TIME = 40;
         const double NON_SEL_DEAL_SCALE = 0.9;
         const double NON_SEL_DEAL_OPACITY = 0.6;
 
-        public DealArranger(Card[] cards)
+        public DealArranger(Card[] cards, TextBlock timeBlock)
         {
             Cards = cards;
+            TimeBlock = timeBlock;
             for (int i = 0; i < 81; i++)
             {
-                DrawPile.Add(i);
+                _DrawPile.Add(i);
                 Cards[i].SourceImage.Tapped += CardTappedHandlerGenerator(i);
                 //Cards[i].SourceImage.PointerReleased += CardClickedHandlerGenerator(i);
                 //Cards[i].SetValue(Control.HeightProperty, 225);
                 //Cards[i].SetValue(Control.WidthProperty, 150);
-                Animations[i, 0] = new DoubleAnimation() { From = null, To = Card.WIDTH * 0.75, Duration = TimeSpan.FromMilliseconds(ANIMATION_TIME), EnableDependentAnimation = true };
-                Animations[i, 1] = new DoubleAnimation() { From = null, To = Card.HEIGHT * 0.75, Duration = TimeSpan.FromMilliseconds(ANIMATION_TIME), EnableDependentAnimation = true };
-                Animations[i, 2] = new DoubleAnimation() { From = null, To = 0, Duration = TimeSpan.FromMilliseconds(ANIMATION_TIME), EnableDependentAnimation = true };
-                Animations[i, 3] = new DoubleAnimation() { From = null, To = 1, Duration = TimeSpan.FromMilliseconds(ANIMATION_TIME), EnableDependentAnimation = true };
+                Animations[i, 0] = new DoubleAnimation() { From = null, To = Card.WIDTH * 0.75, Duration = CurrentAnimationTime, EnableDependentAnimation = true };
+                Animations[i, 1] = new DoubleAnimation() { From = null, To = Card.HEIGHT * 0.75, Duration = CurrentAnimationTime, EnableDependentAnimation = true };
+                Animations[i, 2] = new DoubleAnimation() { From = null, To = 0, Duration = CurrentAnimationTime, EnableDependentAnimation = true };
+                Animations[i, 3] = new DoubleAnimation() { From = null, To = 1, Duration = CurrentAnimationTime, EnableDependentAnimation = true };
 
                 Animations[i, 0].Completed += AnimationCompletedGenerator(i);
 
@@ -70,7 +245,7 @@ namespace Three_Item_Match
         {
             return new EventHandler<object>((s, e) =>
             {
-                Cards[majorIndex].FlipTo(FaceUpCards[majorIndex]);
+                Cards[majorIndex].FlipTo(FaceUpCards[majorIndex], InstantDeal);
             });
         }
 
@@ -86,11 +261,14 @@ namespace Three_Item_Match
 
         private void OnCardClicked(int cardNumber)
         {
+            if (!DrawnCards.Contains(cardNumber))
+                return;
+            List<int> selection = SelectedCards.ToList();
             if (SelectedCards.Contains(cardNumber))
-                SelectedCards.Remove(cardNumber);
+                selection.Remove(cardNumber);
             else
-                SelectedCards.Add(cardNumber);
-            ArrangeCards(false, TimeSpan.FromMilliseconds(ANIMATION_TIME / 2));
+                selection.Add(cardNumber);
+            Select(selection.ToArray());
         }
 
         Storyboard MainStoryboard = new Storyboard();
@@ -123,7 +301,10 @@ namespace Three_Item_Match
             }
         }
 
-        private Card[] Cards;
+        private void RefreshSets()
+        {
+            _ShownSets = SetHelper.FindSets(DrawnCards.ToArray());
+        }
 
         public void DealCards(int numCards)
         {
@@ -143,20 +324,28 @@ namespace Three_Item_Match
             //    Animations[i, 2].BeginTime = TimeSpan.FromMilliseconds(50 * (numCards - i - 1));
             //    Animations[i, 3].BeginTime = TimeSpan.FromMilliseconds(50 * (numCards - i - 1));
             //}
+            if (numCards > DrawPile.Count)
+                numCards = DrawPile.Count;
             for (int i = 0; i < numCards; i++)
             {
-                DrawnCards.Add(DrawPile[0]);
-                DrawPile.RemoveAt(0);
+                _DrawnCards.Add(_DrawPile[0]);
+                _DrawPile.RemoveAt(0);
             }
-            ArrangeCards(true, TimeSpan.FromMilliseconds(ANIMATION_TIME));
+            _ShownSets = null;
+            if (DrawnCardsChanged != null) DrawnCardsChanged(this, new EventArgs());
+            ArrangeCards(true, CurrentAnimationTime, CurrentAnimationTime + CurrentAnimationTime);
             Animate();
         }
 
-        private void ArrangeCards(bool cascade, TimeSpan animationDuration)
+        private void ArrangeCards()
         {
-            const double CASC_TIME = 40;
-            int numCascades = 0;
+            ArrangeCards(false, CurrentAnimationTime, CurrentAnimationTime  + CurrentAnimationTime);
+        }
 
+        private void ArrangeCards(bool cascade, TimeSpan moveDuration, TimeSpan collectDuration)
+        {
+            if (SuspendRender)
+                return;
             bool pileOnTop = (Height > Width);
             Rect dealRegion;
             Rect pileRegion;
@@ -185,44 +374,66 @@ namespace Three_Item_Match
             int dealColumns = 1;
             int dealRows = 1;
             double scale = 1;
-            for (int i = 1; i <= DrawnCards.Count; i++)
+            for (int i = 1; i <= _DrawnCards.Count; i++)
             {
                 dealColumns = i;
-                dealRows = (int)Ceiling((double)DrawnCards.Count / (double)dealColumns);
+                dealRows = (int)Ceiling((double)_DrawnCards.Count / (double)dealColumns);
                 scale = Min(dealRegion.Width / dealColumns * NON_SEL_DEAL_SCALE / Card.WIDTH, dealRegion.Height / dealRows * NON_SEL_DEAL_SCALE / Card.HEIGHT);
                 columnScales.Add(scale);
             }
 
             if (columnScales.Count > 0)
                 dealColumns = columnScales.IndexOf(columnScales.Max()) + 1;
-            dealRows = (int)Ceiling((double)DrawnCards.Count / (double)dealColumns);
+            dealRows = (int)Ceiling((double)_DrawnCards.Count / (double)dealColumns);
             scale = Min(dealRegion.Width / dealColumns * NON_SEL_DEAL_SCALE / Card.WIDTH, dealRegion.Height / dealRows * NON_SEL_DEAL_SCALE / Card.HEIGHT);
 
             double cellWidth = dealRegion.Width / dealColumns;
             double cellHeight = dealRegion.Height / dealRows;
-            for (int i = 0; i < DrawnCards.Count; i++)
+            TimeSpan beginTime = TimeSpan.Zero;
+            for (int i = 0; i < _DrawnCards.Count; i++)
             {
-                TimeSpan beginTime = cascade ? TimeSpan.FromMilliseconds(CASC_TIME * numCascades++) : TimeSpan.Zero;
-                FaceUpCards[DrawnCards[i]] = true;
+                FaceUpCards[_DrawnCards[i]] = true;
                 int x = i % dealColumns;
                 int y = i / dealColumns;
-                Animations[DrawnCards[i], 0].To = dealRegion.X + cellWidth * (x + .5);
-                Animations[DrawnCards[i], 1].To = dealRegion.Y + cellHeight * (y + .5);
-                Cards[DrawnCards[i]].SourceImage.Opacity = (SelectedCards.Count > 0 && !SelectedCards.Contains(DrawnCards[i])) ? NON_SEL_DEAL_OPACITY : 1;
-                Animations[DrawnCards[i], 3].To = (SelectedCards.Count > 0) ? SelectedCards.Contains(DrawnCards[i]) ? scale / NON_SEL_DEAL_SCALE : scale * NON_SEL_DEAL_SCALE : scale;
-                Animations[DrawnCards[i], 0].Duration = Animations[DrawnCards[i], 1].Duration = Animations[DrawnCards[i], 3].Duration = animationDuration;
-                SetAnimationTime(DrawnCards[i], beginTime);
+                if (!SetAnimationProperties(_DrawnCards[i], dealRegion.X + cellWidth * (x + .5), dealRegion.Y + cellHeight * (y + .5), null, (_SelectedCards.Count > 0) ? _SelectedCards.Contains(_DrawnCards[i]) ? scale / NON_SEL_DEAL_SCALE : scale * NON_SEL_DEAL_SCALE : scale, moveDuration, beginTime) && cascade)
+                    beginTime += CurrentCascadeTime;
+                if (ShowHighlights)
+                    Cards[_DrawnCards[i]].SourceImage.Opacity = HighlightedCards.Contains(_DrawnCards[i]) || SelectedCards.Contains(_DrawnCards[i]) ? 1 : NON_SEL_DEAL_OPACITY;
+                else
+                    Cards[_DrawnCards[i]].SourceImage.Opacity = (SelectedCards.Count > 0 && !SelectedCards.Contains(_DrawnCards[i])) ? NON_SEL_DEAL_OPACITY : 1;
             }
 
             double pileScale = pileRegionLength * NON_SEL_DEAL_SCALE / Card.WIDTH;
 
-            for (int i = 0; i < DrawPile.Count; i++)
+            Canvas.SetLeft(TimeBlock, (pileRegionLength - TimeBlock.ActualWidth) / 2);
+            Canvas.SetTop(TimeBlock, 0);
+
+            for (int i = 0; i < _DrawPile.Count; i++)
             {
-                Animations[DrawPile[i], 0].To = pileRegionLength / 2;
-                Animations[DrawPile[i], 1].To = pileRegionLength / 2;
-                Animations[DrawPile[i], 3].To = pileScale;
-                Animations[DrawPile[i], 0].Duration = Animations[DrawPile[i], 1].Duration = Animations[DrawPile[i], 3].Duration = animationDuration;
-                SetAnimationTime(DrawPile[i], TimeSpan.Zero);
+                Cards[_DrawPile[i]].SourceImage.Opacity = 1;
+                SetAnimationProperties(_DrawPile[i], pileRegionLength / 2, pileRegionLength / 2 + TimeBlock.ActualHeight, null, pileScale, TimeSpan.Zero, TimeSpan.Zero);
+            }
+
+            double pileX = pileOnTop ? Width / 2 : pileRegionLength / 2;
+            double pileY = pileOnTop ? pileRegionLength / 2 : Height / 2;
+
+            for (int i = 0; i < _CollectedSets.Count; i++)
+            {
+                bool casc = cascade;
+                casc &= SetAnimationProperties(_CollectedSets[i].Card1, pileX, pileY, _CollectedSets[i].Angle1, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
+                casc &= SetAnimationProperties(_CollectedSets[i].Card2, pileX, pileY, _CollectedSets[i].Angle2, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
+                casc &= SetAnimationProperties(_CollectedSets[i].Card3, pileX, pileY, _CollectedSets[i].Angle3, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
+            }
+
+            pileX = pileOnTop ? Width - pileRegionLength / 2 : pileRegionLength / 2;
+            pileY = pileOnTop ? pileRegionLength / 2 : Height - pileRegionLength / 2;
+
+            for (int i = 0; i < _MissedSets.Count; i++)
+            {
+                bool casc = cascade;
+                casc &= SetAnimationProperties(_MissedSets[i].Card1, pileX, pileY, _MissedSets[i].Angle1, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
+                casc &= SetAnimationProperties(_MissedSets[i].Card2, pileX, pileY, _MissedSets[i].Angle2, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
+                casc &= SetAnimationProperties(_MissedSets[i].Card3, pileX, pileY, _MissedSets[i].Angle3, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
             }
             Animate();
         }
@@ -232,7 +443,7 @@ namespace Three_Item_Match
             DateTime time = LastResizeTime = DateTime.Now;
             await Task.Delay(20);
             if (time == LastResizeTime)
-                ArrangeCards(false, TimeSpan.Zero);
+                ArrangeCards(false, TimeSpan.Zero, TimeSpan.Zero);
         }
 
         private void Animate()
@@ -240,24 +451,43 @@ namespace Three_Item_Match
             MainStoryboard.Begin();
         }
 
-        private void SetAnimationTime(int card, TimeSpan time)
+        private bool SetAnimationProperties(int card, double? x, double? y, double? angle, double? scale, TimeSpan duration, TimeSpan beginTime)
         {
-            for (int i = 0; i < 4; i++)
-                Animations[card, i].BeginTime = time;
+            var ani1 = Animations[card, 0];
+            var ani2 = Animations[card, 1];
+            var ani3 = Animations[card, 2];
+            var ani4 = Animations[card, 3];
+            //Cards[card].SourceImage.Opacity = 1;
+            if ((!x.HasValue || Cards[card].X.VisuallyApproximate(x.Value)) && (!y.HasValue || Cards[card].Y.VisuallyApproximate(y.Value)) && (!angle.HasValue || Cards[card].Angle.VisuallyApproximate(angle.Value)) && (!scale.HasValue || Cards[card].Scale.VisuallyApproximate(scale.Value)))
+                return true;
+            ani1.BeginTime = beginTime;
+            ani1.Duration = duration;
+            ani1.To = x;
+            ani2.BeginTime = beginTime;
+            ani2.Duration = duration;
+            ani2.To = y;
+            ani3.BeginTime = beginTime;
+            ani3.Duration = duration;
+            ani3.To = angle;
+            ani4.BeginTime = beginTime;
+            ani4.Duration = duration;
+            ani4.To = scale;
+
+            return false;
         }
 
         public void ShuffleDrawPile()
         {
             List<int> newPile = new List<int>();
-            newPile.AddRange(DrawPile);
-            DrawPile.Clear();
+            newPile.AddRange(_DrawPile);
+            _DrawPile.Clear();
             byte[] buffer = new byte[newPile.Count];
             new Random().NextBytes(buffer);
             for (int i = 0; i < buffer.Length; i++)
             {
                 int index = buffer[i] % newPile.Count;
-                Canvas.SetZIndex(Cards[newPile[index]].SourceImage, buffer.Length - i);
-                DrawPile.Add(newPile[index]);
+                Canvas.SetZIndex(Cards[newPile[index]].SourceImage, i);
+                _DrawPile.Add(newPile[index]);
                 newPile.RemoveAt(index);
             }
         }

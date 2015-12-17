@@ -31,7 +31,7 @@ namespace Three_Item_Match
 
         private bool FaceVisible = false;
 
-        private DoubleAnimation FlipAnimation = new DoubleAnimation() { Duration = TimeSpan.FromMilliseconds(100) };
+        private DoubleAnimation FlipAnimation = new DoubleAnimation() { };
         Storyboard FlipStoryboard = new Storyboard();
 
         public Card(Image sourceImage, CardFace face)
@@ -143,11 +143,11 @@ namespace Three_Item_Match
             }
         }
 
-        public void FlipTo(bool faceUp)
+        public void FlipTo(bool faceUp, bool noAnimate)
         {
             if (_FaceUp != faceUp)
             {
-                Flip();
+                Flip(noAnimate);
             }
         }
 
@@ -163,14 +163,14 @@ namespace Three_Item_Match
             FaceUp = FaceUp;
         }
 
-        private void Flip()
+        private void Flip(bool noAnimate)
         {
             //StopFlip();
             _FaceUp = !FaceUp;
 
             FlipAnimation.To = 90;
             FlipAnimation.From = 0;
-
+            FlipAnimation.Duration = noAnimate ? TimeSpan.Zero : TimeSpan.FromMilliseconds(150);
             FlipStoryboard.Completed += FlipStoryboard_Completed;
             FlipStoryboard.Begin();
         }
