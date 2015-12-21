@@ -1,3 +1,5 @@
+SQLitePCL.Ext.dll
+SQLitePCL.Ext.pri
 Assets\Back.png
 Assets\Card0.png
 Assets\Card1.png
@@ -95,4 +97,5 @@ App.xbf
 Card.xbf
 MainPage.xbf
 ScaleDownControl.xbf
+SettingsPage.xbf
 Three Item Match.WindowsPhone.xr.xml

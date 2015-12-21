@@ -1,6 +1,7 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\three item match\three item match.windowsphone\obj\debug\intermediatexaml\three item match.windowsphone.exe" HashGuid="b5eee800-1705-6235-4c19-ece2f3006fb5" />
+    <LocalAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\three item match\three item match.windowsphone\obj\debug\intermediatexaml\three item match.windowsphone.exe" HashGuid="8122bf65-1b44-3383-d08d-ebda25d407e3" />
+    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\sqlitepcl.3.8.7.2\lib\wpa81\sqlitepcl.dll" HashGuid="a405761a-bd1d-dc16-54b5-36df2e9981c5" />
     <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\writeablebitmapex.1.5.0.0\lib\wpa81\writeablebitmapex.winrt.dll" HashGuid="6dd9ab30-a8ea-e714-1c9c-a07c544a2da6" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

@@ -97,7 +97,7 @@ namespace Three_Item_Match
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
-            CounterTimer.Tick += CounterTimer_Tick;
+            CounterTimer.Tick += (e, s) => IncrementTimer();
             CounterTimer.Start();
 
             SetPlatformSpecificUI();
@@ -108,20 +108,28 @@ namespace Three_Item_Match
                 Cards[i] = new Card(image, CardFace.FromInt(i));
                 MainCanvas.Children.Add(image);
             }
-            Dealer = new DealArranger(Cards, TimeBlock);
-            Manager = new GameManager(Dealer, false, false, false, false, false, false, false);
+            Dealer = new DealArranger(Cards, TimeBlockGrid);
+            Manager = new GameManager(Dealer, true, true, false, false, false, false, false);
             Manager.Start();
         }
-
-        private void CounterTimer_Tick(object sender, object e)
+        
+        private void IncrementTimer()
         {
-            CurrentTime += TimeSpan.FromSeconds(1);
+            IncrementTimer(TimeSpan.FromSeconds(1));
+        }
+
+        private void IncrementTimer(TimeSpan time)
+        {
+            if (!Manager.IsInGame)
+                return;
+            CurrentTime += time;
+            Manager.CurrentTime = CurrentTime;
             TimeBlock.Text = CurrentTime.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Dealer.DealCards(1);
+            Dealer.DrawCards(1);
         }
 
         private void Canvas_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -135,7 +143,7 @@ namespace Three_Item_Match
 
         private void Button12_Click(object sender, RoutedEventArgs e)
         {
-            Dealer.DealCards(12);
+            Dealer.DrawCards(12);
         }
 
         private void Pause()
@@ -149,7 +157,7 @@ namespace Three_Item_Match
         {
             foreach (var crd in Cards)
                 crd.SourceImage.Visibility = Visibility.Visible;
-            CurrentTime += TimeSpan.FromSeconds(1);
+            IncrementTimer();
             CounterTimer.Start();
         }
 

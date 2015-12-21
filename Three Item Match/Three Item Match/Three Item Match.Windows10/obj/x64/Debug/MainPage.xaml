@@ -18,7 +18,18 @@
             <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
         <Canvas x:ConnectionId='2' x:Name="MainCanvas" Grid.Row="0"                                 >
-            <TextBlock x:ConnectionId='3' x:Name="TimeBlock" FontSize="24" Foreground="White">00:00:00</TextBlock>
+            <Grid x:ConnectionId='3' x:Name="TimeBlockGrid" Canvas.ZIndex="100">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#00000000"/>
+                        <GradientStop Color="#40000000" Offset="0.3"/>
+                        <GradientStop Color="#40000000" Offset="0.7"/>
+                        <GradientStop Color="#00000000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock x:ConnectionId='4' x:Name="TimeBlockShadow" FontSize="24" Foreground="#C0000000" Margin="1,1,0,0" Text="{Binding ElementName=TimeBlock, Path=Text}"/>
+                <TextBlock x:ConnectionId='5' x:Name="TimeBlock" FontSize="24" Foreground="White" Margin="0,0,1,1">00:00:00</TextBlock>
+            </Grid>
         </Canvas>
         <!--<local:ScaleDownControl Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ContentMinWidth="700" ContentMinHeight="700">
             <Rectangle Fill="Red"/>

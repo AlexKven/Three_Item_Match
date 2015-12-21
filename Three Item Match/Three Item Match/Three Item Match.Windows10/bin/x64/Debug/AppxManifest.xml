@@ -19,6 +19,7 @@
   </Dependencies>
   <Resources>
     <Resource Language="EN-US" />
+    <Resource Language="EN" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="Three Item Match.Windows10.exe" EntryPoint="Three_Item_Match.Windows10.App">

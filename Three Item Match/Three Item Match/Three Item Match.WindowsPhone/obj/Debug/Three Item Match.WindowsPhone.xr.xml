@@ -32,7 +32,11 @@
       <RootProperty Name="Children" />
       <RootEvent Name="SizeChanged" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Inlines" />
+    </RootType>
     <RootType FullName="Three_Item_Match.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ContentControl">
       <RootProperty Name="Template" />

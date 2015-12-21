@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Three_Item_Match
 {
-    public class GameManager : INotifyPropertyChanged
+    public class GameManager
     {
         private readonly DealArranger Dealer;
         private readonly bool MissOnIncorrect;
@@ -16,6 +16,13 @@ namespace Three_Item_Match
         private readonly bool TrainingMode;
         private readonly bool DrawThree;
         private readonly bool InstantDeal;
+
+        private TimeSpan _CurrentTime;
+
+        public TimeSpan CurrentTime
+        {
+            set { _CurrentTime = value; }
+        }
 
         public GameManager(DealArranger dealer, bool missOnIncorrect, bool autodealNoSets, bool ensureSets, bool penaltyOnDealWithSets, bool trainingMode, bool drawThree, bool instantDeal)
         {
@@ -37,7 +44,7 @@ namespace Three_Item_Match
             Dealer.DrawnCardsChanged += Dealer_DrawnCardsChanged;
         }
 
-        private bool IsInGame = false;
+        public bool IsInGame { get; private set; }
 
         private int NumHints = 0;
 
@@ -50,8 +57,13 @@ namespace Three_Item_Match
                 Dealer.ShowHighlights = false;
             if (Dealer.DrawnCards.Count < 12)
                 DrawCards();
-            while (AutodealNoSets && Dealer.ShownSets.Count == 0 && Dealer.DrawPile.Count > 0)
-                DrawCards();
+            if (AutodealNoSets && Dealer.ShownSets.Count == 0)
+            {
+                if (Dealer.DrawPile.Count > 0)
+                    DrawCards();
+                else
+                    EndGame();
+            }
         }
 
         private void Dealer_SelectionChanged(object sender, EventArgs e)
@@ -97,16 +109,22 @@ namespace Three_Item_Match
         {
             if (Dealer.DrawPile.Count == 0)
                 return;
+            if (EnsureSets && !Dealer.EnsureSetNextDraw())
+                EndGame();
             if (Dealer.DrawnCards.Count < 12)
-                Dealer.DealCards(12 - Dealer.DrawnCards.Count);
+                Dealer.DrawCards(12 - Dealer.DrawnCards.Count);
             else
-                Dealer.DealCards(DrawThree ? 3 : 1);
+                Dealer.DrawCards(DrawThree ? 3 : 1);
         }
 
         public void Start()
         {
             IsInGame = true;
+            if (EnsureSets)
+                Dealer.EnsureSetNextDraw();
             DrawCards();
+            if (AutodealNoSets && Dealer.ShownSets.Count == 0 && Dealer.DrawPile.Count > 0)
+                DrawCards();
         }
 
         private bool _IsPaused = false;
@@ -116,16 +134,6 @@ namespace Three_Item_Match
             set
             {
                 _IsPaused = value;
-                OnPropertiesChanged("IsPaused");
-            }
-        }
-
-        private void OnPropertiesChanged(params string[] propertyNames)
-        {
-            foreach (var propertyName in propertyNames)
-            {
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
@@ -139,6 +147,8 @@ namespace Three_Item_Match
         {
             if (Dealer.ShownSets.Count == 0)
             {
+                if (Dealer.DrawPile.Count == 0)
+                    EndGame();
                 DrawCards();
             }
             else if (PenaltyOnDealWithSets)
@@ -150,6 +160,13 @@ namespace Three_Item_Match
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public void EndGame()
+        {
+            IsInGame = false;
+            if (GameEnded != null)
+                GameEnded(this, new EventArgs());
+        }
+
+        public event EventHandler GameEnded;
     }
 }

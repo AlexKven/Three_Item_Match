@@ -1,10 +1,7 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\three item match\three item match.windowsphone\obj\arm\debug\intermediatexaml\three item match.windowsphone.exe" HashGuid="693dfeb3-707d-b3a0-f2a0-38be23e82019" />
-    <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windowsphoneapp\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
-    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\lumiaimagingsdk.2.0.208\lib\wpa81-hidden\arm\lumia.imaging.managed.dll" HashGuid="4995ac95-997b-6a34-dd96-7fb05ef15210" />
-    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\lumiaimagingsdk.2.0.208\lib\wpa81\arm\lumia.imaging.winmd" HashGuid="d16e02ff-554c-0883-c15e-9c1ee6c065c5" />
-    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\lumiaimagingsdk.2.0.208\lib\wpa81\arm\lumia.interopservices.windowsruntime.winmd" HashGuid="be026b97-4e17-03e1-494d-e8a25f3c2582" />
+    <LocalAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\three item match\three item match.windowsphone\obj\arm\debug\intermediatexaml\three item match.windowsphone.exe" HashGuid="8ba4760f-e76c-ee6b-487a-ad85372a2965" />
+    <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\sqlitepcl.3.8.5.0\lib\wpa81\sqlitepcl.dll" HashGuid="35996a9a-fcd7-5b73-8a62-9053b6d07d55" />
     <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\writeablebitmapex.1.5.0.0\lib\wpa81\writeablebitmapex.winrt.dll" HashGuid="6dd9ab30-a8ea-e714-1c9c-a07c544a2da6" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

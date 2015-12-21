@@ -45,3 +45,15 @@ C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\ScaleDownControl.g.cs
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\ScaleDownControl.xaml
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\ScaleDownControl.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\SQLitePCL.Ext.dll
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\SQLitePCL.Ext.pri
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\SettingsPage.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\SQLitePCL.dll
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SettingsPage.g.i.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SettingsPage.g.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SettingsPage.xaml
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SettingsPage.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SQLitePCL\en\SQLitePCL.Resources.resw
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SQLitePCL.pri
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SQLitePCL\qualifiers.txt
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\obj\ARM\Debug\SQLitePCL.Ext.pri.xml

@@ -25,7 +25,7 @@ namespace Three_Item_Match
         private List<SetPile> _MissedSets = new List<SetPile>();
         private Tuple<int, int, int>[] _ShownSets = null;
         private Card[] Cards;
-        private TextBlock TimeBlock;
+        private FrameworkElement TimeBlock;
         private bool _SuspendRender = false;
 
         private bool _ShowHighlights = false;
@@ -200,7 +200,7 @@ namespace Three_Item_Match
         const double NON_SEL_DEAL_SCALE = 0.9;
         const double NON_SEL_DEAL_OPACITY = 0.6;
 
-        public DealArranger(Card[] cards, TextBlock timeBlock)
+        public DealArranger(Card[] cards, FrameworkElement timeBlock)
         {
             Cards = cards;
             TimeBlock = timeBlock;
@@ -306,7 +306,7 @@ namespace Three_Item_Match
             _ShownSets = SetHelper.FindSets(DrawnCards.ToArray());
         }
 
-        public void DealCards(int numCards)
+        public void DrawCards(int numCards)
         {
             //Random rnd = new Random();
             //double scale = 90.0 / 200;
@@ -406,12 +406,12 @@ namespace Three_Item_Match
             double pileScale = pileRegionLength * NON_SEL_DEAL_SCALE / Card.WIDTH;
 
             Canvas.SetLeft(TimeBlock, (pileRegionLength - TimeBlock.ActualWidth) / 2);
-            Canvas.SetTop(TimeBlock, 0);
+            Canvas.SetTop(TimeBlock, (pileRegionLength - TimeBlock.ActualHeight) / 2);
 
             for (int i = 0; i < _DrawPile.Count; i++)
             {
                 Cards[_DrawPile[i]].SourceImage.Opacity = 1;
-                SetAnimationProperties(_DrawPile[i], pileRegionLength / 2, pileRegionLength / 2 + TimeBlock.ActualHeight, null, pileScale, TimeSpan.Zero, TimeSpan.Zero);
+                SetAnimationProperties(_DrawPile[i], pileRegionLength / 2, pileRegionLength / 2 /* + TimeBlock.ActualHeight*/, null, pileScale, TimeSpan.Zero, TimeSpan.Zero);
             }
 
             double pileX = pileOnTop ? Width / 2 : pileRegionLength / 2;
@@ -490,6 +490,39 @@ namespace Three_Item_Match
                 _DrawPile.Add(newPile[index]);
                 newPile.RemoveAt(index);
             }
+        }
+
+        public bool EnsureSetNextDraw()
+        {
+            int drawCount = DrawnCards.Count >= 12 ? 1 : 12 - DrawnCards.Count;
+            Stack<int> checkStack = new Stack<int>(DrawnCards);
+            if (DrawPile.Count == 0)
+                return false;
+            int index = 0;
+            while (index < DrawnCards.Count)
+            {
+                if (index + drawCount > DrawnCards.Count)
+                    drawCount = DrawnCards.Count - index;
+                for (int i = 0; i < drawCount; i++)
+                    checkStack.Push(DrawPile[index + i]);
+                if (SetHelper.FindSets(checkStack.ToArray()).Length > 0)
+                {
+                    if (index == 0)
+                        return true;
+                    int tempCard;
+                    for (int i = 0; i < drawCount; i++)
+                    {
+                        tempCard = DrawPile[i];
+                        _DrawPile[i] = DrawPile[index + i];
+                        _DrawPile[index + i] = tempCard;
+                        Canvas.SetZIndex(Cards[DrawPile[index + i]].SourceImage, index + i);
+                        Canvas.SetZIndex(Cards[DrawPile[i]].SourceImage, i);
+                    }
+                    return true;
+                }
+                index += drawCount;
+            }
+            return false;
         }
     }
 }

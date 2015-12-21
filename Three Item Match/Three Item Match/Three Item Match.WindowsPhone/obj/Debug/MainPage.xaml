@@ -18,7 +18,7 @@
             <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
         <Canvas x:ConnectionId='1' x:Name="MainCanvas" Grid.Row="0"                                 >
-            <TextBlock x:Name="TimeBlock"/>
+            <TextBlock x:Name="TimeBlock" FontSize="24" Foreground="White">00:00:00</TextBlock>
         </Canvas>
         <!--<local:ScaleDownControl Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ContentMinWidth="700" ContentMinHeight="700">
             <Rectangle Fill="Red"/>
