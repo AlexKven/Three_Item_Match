@@ -124,7 +124,7 @@ namespace Three_Item_Match.Three_Item_Match_Windows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[15];
+            _typeNameTable = new string[16];
             _typeNameTable[0] = "Three_Item_Match.Card";
             _typeNameTable[1] = "Windows.UI.Xaml.DependencyObject";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.Image";
@@ -140,8 +140,9 @@ namespace Three_Item_Match.Three_Item_Match_Windows_XamlTypeInfo
             _typeNameTable[12] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[13] = "Three_Item_Match.ScaleDownControl";
             _typeNameTable[14] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[15] = "Three_Item_Match.SettingsPage";
 
-            _typeTable = new global::System.Type[15];
+            _typeTable = new global::System.Type[16];
             _typeTable[0] = typeof(global::Three_Item_Match.Card);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.DependencyObject);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.Image);
@@ -157,6 +158,7 @@ namespace Three_Item_Match.Three_Item_Match_Windows_XamlTypeInfo
             _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[13] = typeof(global::Three_Item_Match.ScaleDownControl);
             _typeTable[14] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[15] = typeof(global::Three_Item_Match.SettingsPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -194,6 +196,7 @@ namespace Three_Item_Match.Three_Item_Match_Windows_XamlTypeInfo
         private object Activate_0_Card() { return new global::Three_Item_Match.Card(); }
         private object Activate_10_MainPage() { return new global::Three_Item_Match.MainPage(); }
         private object Activate_13_ScaleDownControl() { return new global::Three_Item_Match.ScaleDownControl(); }
+        private object Activate_15_SettingsPage() { return new global::Three_Item_Match.SettingsPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -292,6 +295,13 @@ namespace Three_Item_Match.Three_Item_Match_Windows_XamlTypeInfo
 
             case 14:   //  Windows.UI.Xaml.Controls.ContentControl
                 xamlType = new global::Three_Item_Match.Three_Item_Match_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Three_Item_Match.SettingsPage
+                userType = new global::Three_Item_Match.Three_Item_Match_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_SettingsPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;

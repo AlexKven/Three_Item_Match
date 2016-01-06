@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Media.Animation;
 using static System.Math;
 using System.Linq;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Three_Item_Match
 {
@@ -26,7 +27,8 @@ namespace Three_Item_Match
         private Tuple<int, int, int>[] _ShownSets = null;
         private Card[] Cards;
         private FrameworkElement TimeBlock;
-        private bool _SuspendRender = false;
+        private int _RenderSuspensionLevel = 0;
+        private bool _CascadingRender = false;
 
         private bool _ShowHighlights = false;
 
@@ -67,17 +69,6 @@ namespace Three_Item_Match
             get { return new ReadOnlyCollection<SetPile>(_MissedSets); }
         }
 
-        public bool SuspendRender
-        {
-            get { return _SuspendRender; }
-            set
-            {
-                _SuspendRender = value;
-                if (!SuspendRender)
-                    ArrangeCards(true, CurrentAnimationTime, CurrentAnimationTime + CurrentAnimationTime);
-            }
-        }
-
         public IReadOnlyList<Tuple<int, int, int>> ShownSets
         {
             get
@@ -94,7 +85,7 @@ namespace Three_Item_Match
             set
             {
                 _ShowHighlights = value;
-                ArrangeCards();
+                Render(false);
             }
         }
 
@@ -120,7 +111,7 @@ namespace Three_Item_Match
         {
             _SelectedCards.Clear();
             _SelectedCards.AddRange(cards);
-            ArrangeCards();
+            Render(false);
             if (SelectionChanged != null)
                 SelectionChanged(this, new EventArgs());
         }
@@ -129,7 +120,7 @@ namespace Three_Item_Match
         {
             _HighlightedCards.Clear();
             _HighlightedCards.AddRange(cards);
-            ArrangeCards();
+            Render(false);
             if (HighlightedCardsChanged != null)
                 HighlightedCardsChanged(this, new EventArgs());
         }
@@ -140,7 +131,7 @@ namespace Three_Item_Match
             {
                 if (_HighlightedCards.Contains(card))
                     _HighlightedCards.Remove(card);
-                ArrangeCards();
+                Render(false);
                 if (HighlightedCardsChanged != null)
                     HighlightedCardsChanged(this, new EventArgs());
             }
@@ -152,7 +143,7 @@ namespace Three_Item_Match
             {
                 if (_SelectedCards.Contains(card))
                     _SelectedCards.Remove(card);
-                ArrangeCards();
+                Render(false);
                 if (SelectionChanged != null)
                     SelectionChanged(this, new EventArgs());
             }
@@ -169,6 +160,7 @@ namespace Three_Item_Match
             Cards[card1].SourceImage.Opacity = 1;
             Cards[card2].SourceImage.Opacity = 1;
             Cards[card3].SourceImage.Opacity = 1;
+            Render(true);
             if (DrawnCardsChanged != null) DrawnCardsChanged(this, new EventArgs());
         }
 
@@ -183,6 +175,7 @@ namespace Three_Item_Match
             Cards[card1].SourceImage.Opacity = 1;
             Cards[card2].SourceImage.Opacity = 1;
             Cards[card3].SourceImage.Opacity = 1;
+            Render(true);
             if (DrawnCardsChanged != null) DrawnCardsChanged(this, new EventArgs());
         }
         #endregion
@@ -308,22 +301,6 @@ namespace Three_Item_Match
 
         public void DrawCards(int numCards)
         {
-            //Random rnd = new Random();
-            //double scale = 90.0 / 200;
-            //for (int i = 0; i < numCards; i++)
-            //{
-            //    FaceUpCards[i] = true;
-            //    Animations[i, 0].To = rnd.Next(100, (int)Width - 100);
-            //    Animations[i, 1].To = rnd.Next(100, (int)Height - 100);
-            //    if (rnd.NextDouble() < .5)
-            //        rnd.NextBytes(new byte[50]);
-            //    Animations[i, 2].To = (1 + rnd.NextDouble()) * 360;
-            //    Animations[i, 3].To = scale;
-            //    Animations[i, 0].BeginTime = TimeSpan.FromMilliseconds(50 * (numCards - i - 1));
-            //    Animations[i, 1].BeginTime = TimeSpan.FromMilliseconds(50 * (numCards - i - 1));
-            //    Animations[i, 2].BeginTime = TimeSpan.FromMilliseconds(50 * (numCards - i - 1));
-            //    Animations[i, 3].BeginTime = TimeSpan.FromMilliseconds(50 * (numCards - i - 1));
-            //}
             if (numCards > DrawPile.Count)
                 numCards = DrawPile.Count;
             for (int i = 0; i < numCards; i++)
@@ -333,19 +310,33 @@ namespace Three_Item_Match
             }
             _ShownSets = null;
             if (DrawnCardsChanged != null) DrawnCardsChanged(this, new EventArgs());
-            ArrangeCards(true, CurrentAnimationTime, CurrentAnimationTime + CurrentAnimationTime);
-            Animate();
+            Render(true);
         }
 
-        private void ArrangeCards()
+        public void RenderBeginTransaction()
         {
-            ArrangeCards(false, CurrentAnimationTime, CurrentAnimationTime  + CurrentAnimationTime);
+            _RenderSuspensionLevel++;
+        }
+
+        public void RenderCommit()
+        {
+            _RenderSuspensionLevel--;
+            if (_RenderSuspensionLevel == 0)
+                Render(_CascadingRender);
+            _CascadingRender = false;
+        }
+
+        public void Render(bool cascade)
+        {
+            if (_RenderSuspensionLevel > 0)
+                _CascadingRender |= cascade;
+            else
+                ArrangeCards(cascade, CurrentAnimationTime, CurrentAnimationTime + CurrentAnimationTime);
         }
 
         private void ArrangeCards(bool cascade, TimeSpan moveDuration, TimeSpan collectDuration)
         {
-            if (SuspendRender)
-                return;
+            //Debug.WriteLine("Arrange!");
             bool pileOnTop = (Height > Width);
             Rect dealRegion;
             Rect pileRegion;
@@ -392,7 +383,7 @@ namespace Three_Item_Match
             TimeSpan beginTime = TimeSpan.Zero;
             for (int i = 0; i < _DrawnCards.Count; i++)
             {
-                FaceUpCards[_DrawnCards[i]] = true;
+                //FaceUpCards[_DrawnCards[i]] = true;
                 int x = i % dealColumns;
                 int y = i / dealColumns;
                 if (!SetAnimationProperties(_DrawnCards[i], dealRegion.X + cellWidth * (x + .5), dealRegion.Y + cellHeight * (y + .5), null, (_SelectedCards.Count > 0) ? _SelectedCards.Contains(_DrawnCards[i]) ? scale / NON_SEL_DEAL_SCALE : scale * NON_SEL_DEAL_SCALE : scale, moveDuration, beginTime) && cascade)
@@ -435,6 +426,7 @@ namespace Three_Item_Match
                 casc &= SetAnimationProperties(_MissedSets[i].Card2, pileX, pileY, _MissedSets[i].Angle2, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
                 casc &= SetAnimationProperties(_MissedSets[i].Card3, pileX, pileY, _MissedSets[i].Angle3, pileScale * SetPile.SCALE_MULTIPLIER, collectDuration, TimeSpan.Zero);
             }
+            SetCardAppearances();
             Animate();
         }
 
@@ -476,6 +468,42 @@ namespace Three_Item_Match
             return false;
         }
 
+        private void SetCardAppearances()
+        {
+            for (int i = 0; i < DrawPile.Count; i++)
+            {
+                FaceUpCards[DrawPile[i]] = false;
+                Canvas.SetZIndex(Cards[DrawPile[i]].SourceImage, i);
+            }
+
+            for (int i = 0; i < DrawnCards.Count; i++)
+            {
+                FaceUpCards[DrawnCards[i]] = true;
+            }
+
+            for (int i = 0; i < CollectedSets.Count; i++)
+            {
+                var set = CollectedSets[i];
+                FaceUpCards[set.Card1] = true;
+                FaceUpCards[set.Card2] = true;
+                FaceUpCards[set.Card3] = true;
+                Canvas.SetZIndex(Cards[set.Card1].SourceImage, i * 3);
+                Canvas.SetZIndex(Cards[set.Card2].SourceImage, i * 3 + 1);
+                Canvas.SetZIndex(Cards[set.Card3].SourceImage, i * 3 + 2);
+            }
+
+            for (int i = 0; i < MissedSets.Count; i++)
+            {
+                var set = MissedSets[i];
+                FaceUpCards[set.Card1] = true;
+                FaceUpCards[set.Card2] = true;
+                FaceUpCards[set.Card3] = true;
+                Canvas.SetZIndex(Cards[set.Card1].SourceImage, i * 3);
+                Canvas.SetZIndex(Cards[set.Card2].SourceImage, i * 3 + 1);
+                Canvas.SetZIndex(Cards[set.Card3].SourceImage, i * 3 + 2);
+            }
+        }
+
         public void ShuffleDrawPile()
         {
             List<int> newPile = new List<int>();
@@ -486,7 +514,7 @@ namespace Three_Item_Match
             for (int i = 0; i < buffer.Length; i++)
             {
                 int index = buffer[i] % newPile.Count;
-                Canvas.SetZIndex(Cards[newPile[index]].SourceImage, i);
+                //Canvas.SetZIndex(Cards[newPile[index]].SourceImage, i);
                 _DrawPile.Add(newPile[index]);
                 newPile.RemoveAt(index);
             }
@@ -515,14 +543,76 @@ namespace Three_Item_Match
                         tempCard = DrawPile[i];
                         _DrawPile[i] = DrawPile[index + i];
                         _DrawPile[index + i] = tempCard;
-                        Canvas.SetZIndex(Cards[DrawPile[index + i]].SourceImage, index + i);
-                        Canvas.SetZIndex(Cards[DrawPile[i]].SourceImage, i);
+                        //Canvas.SetZIndex(Cards[DrawPile[index + i]].SourceImage, index + i);
+                        //Canvas.SetZIndex(Cards[DrawPile[i]].SourceImage, i);
                     }
                     return true;
                 }
                 index += drawCount;
             }
             return false;
+        }
+
+        public void Reset()
+        {
+            _MissedSets.Clear();
+            _SelectedCards.Clear();
+            _HighlightedCards.Clear();
+            _CollectedSets.Clear();
+            _DrawnCards.Clear();
+            _DrawPile.Clear();
+            for (int i = 0; i < 81; i++)
+                _DrawPile.Add(i);
+        }
+
+        public void GetState(Dictionary<string, object> dict)
+        {
+            dict.Add("DrawPile", DrawPile.ToArray());
+            dict.Add("DrawnCards", DrawnCards.ToArray());
+            List<int> sets = new List<int>();
+            foreach (var set in CollectedSets)
+            {
+                sets.Add(set.Card1);
+                sets.Add(set.Card2);
+                sets.Add(set.Card3);
+            }
+            dict.Add("CollectedSets", sets.ToArray());
+            sets.Clear();
+            foreach (var set in MissedSets)
+            {
+                sets.Add(set.Card1);
+                sets.Add(set.Card2);
+                sets.Add(set.Card3);
+            }
+            dict.Add("MissedSets", sets.ToArray());
+            dict.Add("InstantDeal", InstantDeal);
+        }
+
+        public void SetSate(Dictionary<string, object> dict)
+        {
+            _DrawPile.Clear();
+            _DrawPile.AddRange((int[])dict["DrawPile"]);
+            _DrawnCards.Clear();
+            _DrawnCards.AddRange((int[])dict["DrawnCards"]);
+            InstantDeal = (bool)dict["InstantDeal"];
+            int[] sets = (int[])dict["CollectedSets"];
+            _CollectedSets.Clear();
+            for (int i = 0; i < sets.Length; i += 3)
+            {
+                _CollectedSets.Add(new SetPile(sets[i], sets[i + 1], sets[i + 2], new Random().NextDouble() * 360));
+                FaceUpCards[sets[i]] = true;
+                FaceUpCards[sets[i + 1]] = true;
+                FaceUpCards[sets[i + 2]] = true;
+            }
+            sets = (int[])dict["MissedSets"];
+            _MissedSets.Clear();
+            for (int i = 0; i < sets.Length; i += 3)
+            {
+                _MissedSets.Add(new SetPile(sets[i], sets[i + 1], sets[i + 2], new Random().NextDouble() * 360));
+                FaceUpCards[sets[i]] = true;
+                FaceUpCards[sets[i + 1]] = true;
+                FaceUpCards[sets[i + 2]] = true;
+            }
         }
     }
 }

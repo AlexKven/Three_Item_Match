@@ -48,6 +48,11 @@ namespace Three_Item_Match
         /// session. The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            if (e.PageState != null)
+            {
+                Manager.SetSate(e.PageState);
+                CurrentTime = TimeSpan.FromSeconds((double)e.PageState["CurrentTimeSeconds"]);
+            }
         }
 
         /// <summary>
@@ -60,6 +65,7 @@ namespace Three_Item_Match
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
+            Manager.GetState(e.PageState);
         }
 
         /// The methods provided in this section are simply used to allow
@@ -109,10 +115,18 @@ namespace Three_Item_Match
                 MainCanvas.Children.Add(image);
             }
             Dealer = new DealArranger(Cards, TimeBlockGrid);
-            Manager = new GameManager(Dealer, true, true, false, false, false, false, false);
+            Manager = new GameManager(Dealer, IncorrectSetBehavior.EndGame, true, false, false, false, false, false);
+            Manager.GameEnded += Manager_GameEnded;
             Manager.Start();
         }
-        
+
+        private void Manager_GameEnded(object sender, EventArgs e)
+        {
+            Manager.Reset(IncorrectSetBehavior.EndGame, true, false, false, false, false, false);
+            CurrentTime = TimeSpan.Zero;
+            Manager.Start();
+        }
+
         private void IncrementTimer()
         {
             IncrementTimer(TimeSpan.FromSeconds(1));
@@ -148,8 +162,8 @@ namespace Three_Item_Match
 
         private void Pause()
         {
-            foreach (var crd in Cards)
-                crd.SourceImage.Visibility = Visibility.Collapsed;
+            foreach (var crd in Dealer.DrawnCards)
+                Cards[crd].SourceImage.Visibility = Visibility.Collapsed;
             CounterTimer.Stop();
         }
 
@@ -161,9 +175,11 @@ namespace Three_Item_Match
             CounterTimer.Start();
         }
 
+        private bool IsButtonEnabled(int i) => i == 0 ? Manager.CallNoSetsEnabled : i == 2 ? Manager.HintEnabled : true;
+
         private void SetPlatformSpecificUI()
         {
-            Color pageBG = (Color)Resources["BGColor"];
+            Color pageBG = (Color)App.Current.Resources["BGColor"];
             Color appbarBG = Color.FromArgb(255, (byte)((double)pageBG.R * 13 / 9), (byte)((double)pageBG.G * 13 / 9), (byte)((double)pageBG.B * 13 / 9));
             List<ICommandBarElement> buttons = new List<ICommandBarElement>()
             {
@@ -181,6 +197,7 @@ namespace Three_Item_Match
             ((AppBarToggleButton)buttons[1]).Unchecked += (s, e) => Unpause();
             ((AppBarButton)buttons[2]).Click += (s, e) => Manager.RequestHint();
             ((AppBarButton)buttons[4]).Click += (s, e) => Frame.Navigate(typeof(SettingsPage));
+            ((AppBarButton)buttons[6]).Click += (s, e) => Frame.Navigate(typeof(StatsPage));
 #if WINDOWS_UWP
             buttons.Insert(4, new AppBarToggleButton() { Label = "Fullscreen", Icon = new SymbolIcon(Symbol.FullScreen) });
             ((AppBarToggleButton)buttons[4]).Checked += FullscreenButton_Checked;
@@ -227,7 +244,7 @@ namespace Three_Item_Match
                             bar.PrimaryCommands.Remove(buttons[i]);
                             bar.SecondaryCommands.Add(buttons[i]);
                         }
-                        ((ButtonBase)buttons[i]).IsEnabled = true;
+                        ((ButtonBase)buttons[i]).IsEnabled = IsButtonEnabled(i);
                     }
                     else
                     {
@@ -236,7 +253,7 @@ namespace Three_Item_Match
                             bar.SecondaryCommands.Remove(buttons[i]);
                             bar.PrimaryCommands.Add(buttons[i]);
                         }
-                        ((ButtonBase)buttons[i]).IsEnabled = true;
+                        ((ButtonBase)buttons[i]).IsEnabled = IsButtonEnabled(i);
                     }
                 }
             };

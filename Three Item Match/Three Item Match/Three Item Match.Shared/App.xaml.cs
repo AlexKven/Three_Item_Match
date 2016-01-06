@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,6 +27,9 @@ namespace Three_Item_Match
     /// </summary>
     public sealed partial class App : Application
     {
+        internal static SQLitePCL.SQLiteConnection DatabaseConnection;
+        internal static bool ProvideGuiBackButton = true;
+
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
 #endif
@@ -58,7 +62,22 @@ namespace Three_Item_Match
             Frame rootFrame = Window.Current.Content as Frame;
 #if WINDOWS_UWP
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(100, 100));
+
+            if (ApiInformation.IsApiContractPresent("Windows.Phone.PhoneContract", 1, 0))
+            {  // ver 2.0
+                Windows.Phone.UI.Input.HardwareButtons.BackPressed += (s, a) =>
+                {
+                    if (rootFrame?.BackStackDepth > 0)
+                    {
+                        a.Handled = true;
+                        rootFrame.GoBack();
+                    }
+                };
+                ProvideGuiBackButton = false;
+            }
 #endif
+
+            DatabaseConnection = Archiver.GetConnection();
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -66,13 +85,17 @@ namespace Three_Item_Match
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
+                rootFrame.ContentTransitions = new TransitionCollection() { new ContentThemeTransition() { HorizontalOffset = 100 } };
+
+                Common.SuspensionManager.KnownTypes.Add(typeof(int[]));
+                Common.SuspensionManager.RegisterFrame(rootFrame, "Session");
 
                 // TODO: change this value to a cache size that is appropriate for your application
                 rootFrame.CacheSize = 1;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    // TODO: Load state from previously suspended application
+                    await Common.SuspensionManager.RestoreAsync();
                 }
 
                 // Place the frame in the current Window
@@ -130,11 +153,12 @@ namespace Three_Item_Match
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
 
             // TODO: Save application state and stop any background activity
+            await Common.SuspensionManager.SaveAsync();
             deferral.Complete();
         }
     }

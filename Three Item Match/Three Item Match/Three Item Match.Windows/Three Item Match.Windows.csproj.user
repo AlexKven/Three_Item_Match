@@ -5,4 +5,9 @@
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <UseAuthentication>true</UseAuthentication>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <RemoteDebugMachine>RETWEET:4020</RemoteDebugMachine>
+    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <UseAuthentication>true</UseAuthentication>
+  </PropertyGroup>
 </Project>

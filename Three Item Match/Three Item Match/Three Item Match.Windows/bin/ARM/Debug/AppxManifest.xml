@@ -31,6 +31,9 @@
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
+  <Dependencies>
+    <PackageDependency Name="Microsoft.VCLibs.120.00.Debug" MinVersion="12.0.21005.1" />
+  </Dependencies>
   <build:Metadata>
     <build:Item Name="SharedGUID" Value="83d06706-73e3-4d62-8f3e-58e1e7d8fc3f" />
     <build:Item Name="CodeSharingProject" Value="248F659F-DAC5-46E8-AC09-60EC9FC95053" />
@@ -41,6 +44,7 @@
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.24720.0" />
     <build:Item Name="ProjectGUID" Value="{EA8C2FA3-D702-4A1A-BEAA-1B28CC5D496A}" />
     <build:Item Name="Microsoft.Windows.UI.Xaml.81.Build.Tasks.dll" Version="14.0.22705.1" />
+    <build:Item Name="SQLite.WinRT81" Version="3.9.2" />
     <build:Item Name="MakePri.exe" Version="6.3.9600.17336 (winblue.150226-1500)" />
   </build:Metadata>
 </Package>

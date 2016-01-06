@@ -67,6 +67,9 @@ namespace Three_Item_Match
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
+
+            if (!App.ProvideGuiBackButton)
+                BackRow.Height = new GridLength(0);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -81,6 +84,11 @@ namespace Three_Item_Match
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
         }
     }
 }

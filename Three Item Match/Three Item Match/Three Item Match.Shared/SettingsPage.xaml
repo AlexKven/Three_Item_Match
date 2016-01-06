@@ -5,9 +5,33 @@
     xmlns:local="using:Three_Item_Match"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" RequestedTheme="Dark">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource BGColor}"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto" x:Name="BackRow"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalScrollMode="Auto">
+            <StackPanel>
+                <TextBlock FontSize="36" TextWrapping="WrapWholeWords">Game Options</TextBlock>
+                <TextBlock FontSize="24" TextWrapping="WrapWholeWords">These will be applied to the next game, and won't affect any game in progress.</TextBlock>
+                <Rectangle Fill="LightGray" Height="1" HorizontalAlignment="Stretch" Margin="10, 5, 10, 5"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">When I select an incorrect set...</TextBlock>
+                <ComboBox HorizontalAlignment="Center" Width="300" SelectedIndex="0">
+                    <ComboBoxItem>Do Nothing</ComboBoxItem>
+                    <ComboBoxItem>Add it to Missed Sets</ComboBoxItem>
+                    <ComboBoxItem>End Game</ComboBoxItem>
+                </ComboBox>
+                <Rectangle Fill="LightGray" Height="1" HorizontalAlignment="Stretch" Margin="10, 5, 10, 5"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">When there are no sets drawn...</TextBlock>
+                <RadioButton FontSize="20" HorizontalAlignment="Center">Automatically draw new cards</RadioButton>
+                <RadioButton FontSize="20" HorizontalAlignment="Center" IsChecked="True">I must manually draw new cards</RadioButton>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="BackButton_Click">Go Back</Button>
     </Grid>
 </Page>

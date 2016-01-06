@@ -6,9 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" RequestedTheme="Dark">
-    <Page.Resources>
-        <Color x:Key="BGColor">#222266</Color>
-    </Page.Resources>
     <Grid x:ConnectionId='1' x:Name="MainGrid">
         <Grid.Background>
             <SolidColorBrush Color="{StaticResource BGColor}"/>
@@ -22,13 +19,13 @@
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#00000000"/>
-                        <GradientStop Color="#40000000" Offset="0.3"/>
-                        <GradientStop Color="#40000000" Offset="0.7"/>
+                        <GradientStop Color="#60000000" Offset="0.3"/>
+                        <GradientStop Color="#60000000" Offset="0.7"/>
                         <GradientStop Color="#00000000" Offset="1"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <TextBlock x:ConnectionId='4' x:Name="TimeBlockShadow" FontSize="24" Foreground="#C0000000" Margin="1,1,0,0" Text="{Binding ElementName=TimeBlock, Path=Text}"/>
-                <TextBlock x:ConnectionId='5' x:Name="TimeBlock" FontSize="24" Foreground="White" Margin="0,0,1,1">00:00:00</TextBlock>
+                <TextBlock x:ConnectionId='4' x:Name="TimeBlockShadow" FontSize="24" Foreground="#C0000000" Margin="3,3,2,2" Text="{Binding ElementName=TimeBlock, Path=Text}"/>
+                <TextBlock x:ConnectionId='5' x:Name="TimeBlock" FontSize="24" Foreground="White" Margin="2,2,3,3">00:00:00</TextBlock>
             </Grid>
         </Canvas>
         <!--<local:ScaleDownControl Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ContentMinWidth="700" ContentMinHeight="700">

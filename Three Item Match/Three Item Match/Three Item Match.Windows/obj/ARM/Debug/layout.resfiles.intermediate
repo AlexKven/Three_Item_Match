@@ -1,3 +1,5 @@
+SQLitePCL.Ext.dll
+SQLitePCL.Ext.pri
 Assets\Back.png
 Assets\Card0.png
 Assets\Card1.png
@@ -83,7 +85,9 @@ Assets\Card9.png
 Assets\Diamond.bmp
 Assets\Oval.bmp
 Assets\Squiggle.bmp
+Assets\HintIcon.png
 Assets\Logo.scale-100.png
+Assets\NoSetsIcon.png
 Assets\SmallLogo.scale-100.png
 Assets\SplashScreen.scale-100.png
 Assets\StoreLogo.scale-100.png
@@ -91,4 +95,5 @@ App.xbf
 Card.xbf
 MainPage.xbf
 ScaleDownControl.xbf
+SettingsPage.xbf
 Three Item Match.Windows.xr.xml

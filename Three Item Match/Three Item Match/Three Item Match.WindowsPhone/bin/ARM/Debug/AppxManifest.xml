@@ -32,6 +32,9 @@
   <Capabilities>
     <Capability Name="internetClientServer" />
   </Capabilities>
+  <Dependencies>
+    <PackageDependency Name="Microsoft.VCLibs.120.00.Phone.Debug" MinVersion="12.0.30113.0" />
+  </Dependencies>
   <build:Metadata>
     <build:Item Name="SharedGUID" Value="83d06706-73e3-4d62-8f3e-58e1e7d8fc3f" />
     <build:Item Name="CodeSharingProject" Value="248F659F-DAC5-46E8-AC09-60EC9FC95053" />

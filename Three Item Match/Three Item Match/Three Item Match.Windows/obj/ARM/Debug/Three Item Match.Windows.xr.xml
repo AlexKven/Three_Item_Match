@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots xmlns="clr-namespace:Microsoft.Xaml.Tools.XamlCompiler.RootLog;assembly=Microsoft.Windows.UI.Xaml.81.Build.Tasks">
+  <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Text" />
+  </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.DependencyObject" />
@@ -29,7 +32,29 @@
       <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
+      <RootProperty Name="Children" />
       <RootEvent Name="SizeChanged" />
+      <RootMethod Name="GetZIndex" />
+      <RootMethod Name="SetZIndex" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.LinearGradientBrush">
+      <RootProperty Name="EndPoint" />
+      <RootProperty Name="GradientStops" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.GradientStop">
+      <RootProperty Name="Color" />
+      <RootProperty Name="Offset" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Inlines" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="ElementName" />
+      <RootProperty Name="Path" />
     </RootType>
     <RootType FullName="Three_Item_Match.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ContentControl">
@@ -45,5 +70,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.ScaleTransform" />
     <RootType FullName="Three_Item_Match.ScaleDownControl" />
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Three_Item_Match.SettingsPage" />
   </Roots.RootTypes>
 </Roots>

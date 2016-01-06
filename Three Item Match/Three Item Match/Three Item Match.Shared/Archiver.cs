@@ -20,7 +20,7 @@ namespace Three_Item_Match
 
         public static void EnsureTablesAndTriggers(SQLiteConnection connection)
         {
-            ExecuteSQL(connection, @"create table if not exists PendingAgency(AgencyID varchar(15) primary key)");
+            ExecuteSQL(connection, @"create table if not exists GameArchive(TimePlayed char(19) primary key, Game varchar(16) not null, IncorrectBehavior varchar(7) not null, AutoDeal char not null, EnsureSets char not null, PenaltyOnDealWithSets char not null, TrainingMode char not null, DrawThree char not null, InstantDeal char not null, DurationSeconds integer not null, CollectedSets integer not null, MissedSets integer not null, Hints integer not null, DealsWithSets integer not null);");
         }
 
         public static string[,] ExecuteSQL(SQLiteConnection conn, string line, out string[] columns, out int numRows)

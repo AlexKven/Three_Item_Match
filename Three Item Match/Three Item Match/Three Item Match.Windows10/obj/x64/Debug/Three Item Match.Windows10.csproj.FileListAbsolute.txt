@@ -215,3 +215,8 @@ C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x64\Debug\SQLitePCL\en\SQLitePCL.Resources.resw
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x64\Debug\Three Item Match.Windows10.csproj.GenerateResource.Cache
 C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x64\Debug\SQLitePCL.Ext.pri.xml
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\bin\x64\Debug\StatsPage.xbf
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x64\Debug\StatsPage.g.i.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x64\Debug\StatsPage.g.cs
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x64\Debug\StatsPage.xaml
+C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows10\obj\x64\Debug\StatsPage.xbf

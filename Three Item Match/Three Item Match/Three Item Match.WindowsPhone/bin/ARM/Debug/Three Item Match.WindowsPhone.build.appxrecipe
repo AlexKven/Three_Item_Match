@@ -21,7 +21,7 @@
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\Three Item Match.WindowsPhone.exe">
       <PackagePath>Three Item Match.WindowsPhone.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\SQLitePCL.3.8.5.0\lib\wpa81\SQLitePCL.dll">
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\SQLitePCL.3.8.7.2\lib\wpa81\SQLitePCL.dll">
       <PackagePath>SQLitePCL.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\WriteableBitmapEx.1.5.0.0\lib\wpa81\WriteableBitmapEx.WinRT.dll">
@@ -30,7 +30,7 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\SQLite.WP81\3.9.2\Redist\Debug\ARM\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\SQLitePCL.3.8.5.0\build\wpa81\SQLitePCL.Ext.dll">
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\SQLitePCL.3.8.7.2\build\wpa81\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\Assets\HintIcon.png">
@@ -336,10 +336,29 @@
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\SettingsPage.xbf">
       <PackagePath>SettingsPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\StatsPage.xbf">
+      <PackagePath>StatsPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.WindowsPhone\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Phone.Debug</Name>
+      <Version>12.0.30113.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Phone.Debug, MinVersion = 12.0.30113.0</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.12.00.Phone.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Phone.Debug</Name>
+      <Version>12.0.30113.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Phone.Debug, MinVersion = 12.0.30113.0</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.12.00.Phone.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
   </ItemGroup>
 </Project>
