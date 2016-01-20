@@ -57,12 +57,10 @@ namespace Three_Item_Match
             get { return _DealsWithSets; }
         }
 
-        public GameManager(DealArranger dealer, IncorrectSetBehavior incorrectBehavior, bool autoDeal, bool ensureSets, bool penaltyOnDealWithSets, bool trainingMode, bool drawThree, bool instantDeal)
+        public GameManager(DealArranger dealer)
         {
             Dealer = dealer;
             Dealer.ShuffleDrawPile();
-
-            SetProperties(incorrectBehavior, autoDeal, ensureSets, penaltyOnDealWithSets, trainingMode, drawThree, instantDeal);
 
             Dealer.HighlightedCardsChanged += Dealer_HighlightedCardsChanged;
             Dealer.SelectionChanged += Dealer_SelectionChanged;
@@ -183,9 +181,12 @@ namespace Three_Item_Match
         public void Start()
         {
             IsInGame = true;
-            if (EnsureSets)
-                Dealer.EnsureSetNextDraw();
-            DrawCards();
+            if (Dealer.DrawnCards.Count == 0)
+            {
+                if (EnsureSets)
+                    Dealer.EnsureSetNextDraw();
+                DrawCards();
+            }
             if (AutoDeal && Dealer.ShownSets.Count == 0 && Dealer.DrawPile.Count > 0)
                 DrawCards();
         }

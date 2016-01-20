@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
-        <Canvas x:ConnectionId='1' x:Name="MainCanvas" Grid.Row="0"                                 >
+        <Canvas x:ConnectionId='1' x:Name="MainCanvas" Grid.Row="0"                                  Visibility="Collapsed">
             <Grid x:Name="TimeBlockGrid" Canvas.ZIndex="100">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0,1">
@@ -27,7 +27,36 @@
                 <TextBlock x:Name="TimeBlockShadow" FontSize="24" Foreground="#C0000000" Margin="3,3,2,2" Text="{Binding ElementName=TimeBlock, Path=Text}"/>
                 <TextBlock x:Name="TimeBlock" FontSize="24" Foreground="White" Margin="2,2,3,3">00:00:00</TextBlock>
             </Grid>
+            <Grid x:Name="PauseGrid" Visibility="Collapsed">
+                
+            </Grid>
         </Canvas>
+        <Grid x:ConnectionId='2' x:Name="GameOverGrid"                                        Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid x:Name="WelcomeGrid" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="10">
+                    <Image Source="//ms-appx/Assets/Back.png" HorizontalAlignment="Center" Width="150" Stretch="Uniform"/>
+                    <TextBlock FontSize="36" TextWrapping="WrapWholeWords" HorizontalAlignment="Center">Welcome To Three Item Match</TextBlock>
+                    <TextBlock FontSize="24" TextWrapping="WrapWholeWords" HorizontalAlignment="Center">an implementation of the card game SET for Windows/Windows Phone 8.1 and Windows 10. If you're new to this game, you can go to the help page. You can also enable training mode in settings.</TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+            <Button x:ConnectionId='3' Margin="5" HorizontalAlignment="Center" Content="Start A Game"                               Grid.Row="1"/>
+        </Grid>
         <!--<local:ScaleDownControl Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ContentMinWidth="700" ContentMinHeight="700">
             <Rectangle Fill="Red"/>
         </local:ScaleDownControl>-->

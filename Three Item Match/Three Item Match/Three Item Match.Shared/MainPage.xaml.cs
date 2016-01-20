@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Threading.Tasks;
 using Three_Item_Match.Common;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -51,8 +52,13 @@ namespace Three_Item_Match
             if (e.PageState != null)
             {
                 Manager.SetSate(e.PageState);
+                if ((bool)e.PageState["GameOver"])
+                    ShowGameOver();
+                else
+                    Manager.Start();
                 CurrentTime = TimeSpan.FromSeconds((double)e.PageState["CurrentTimeSeconds"]);
             }
+            SetCurrentScreen();
         }
 
         /// <summary>
@@ -66,6 +72,7 @@ namespace Three_Item_Match
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
             Manager.GetState(e.PageState);
+            e.PageState.Add("GameOver", !Manager.IsInGame);
         }
 
         /// The methods provided in this section are simply used to allow
@@ -94,6 +101,7 @@ namespace Three_Item_Match
         private Control AppBar;
         private DispatcherTimer CounterTimer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(1) };
         private TimeSpan CurrentTime = TimeSpan.Zero;
+        bool ConcludedGame = false;
 
         public MainPage()
         {
@@ -115,16 +123,15 @@ namespace Three_Item_Match
                 MainCanvas.Children.Add(image);
             }
             Dealer = new DealArranger(Cards, TimeBlockGrid);
-            Manager = new GameManager(Dealer, IncorrectSetBehavior.EndGame, true, false, false, false, false, false);
+            Manager = new GameManager(Dealer);
             Manager.GameEnded += Manager_GameEnded;
-            Manager.Start();
+
+            SetCurrentScreen();
         }
 
         private void Manager_GameEnded(object sender, EventArgs e)
         {
-            Manager.Reset(IncorrectSetBehavior.EndGame, true, false, false, false, false, false);
-            CurrentTime = TimeSpan.Zero;
-            Manager.Start();
+            SetCurrentScreen();
         }
 
         private void IncrementTimer()
@@ -162,15 +169,13 @@ namespace Three_Item_Match
 
         private void Pause()
         {
-            foreach (var crd in Dealer.DrawnCards)
-                Cards[crd].SourceImage.Visibility = Visibility.Collapsed;
+            SetCurrentScreen();
             CounterTimer.Stop();
         }
 
         private void Unpause()
         {
-            foreach (var crd in Cards)
-                crd.SourceImage.Visibility = Visibility.Visible;
+            SetCurrentScreen();
             IncrementTimer();
             CounterTimer.Start();
         }
@@ -196,6 +201,7 @@ namespace Three_Item_Match
             ((AppBarToggleButton)buttons[1]).Checked += (s, e) => Pause();
             ((AppBarToggleButton)buttons[1]).Unchecked += (s, e) => Unpause();
             ((AppBarButton)buttons[2]).Click += (s, e) => Manager.RequestHint();
+            ((AppBarButton)buttons[3]).Click += (s, e) => VerifyNewGame();
             ((AppBarButton)buttons[4]).Click += (s, e) => Frame.Navigate(typeof(SettingsPage));
             ((AppBarButton)buttons[6]).Click += (s, e) => Frame.Navigate(typeof(StatsPage));
 #if WINDOWS_UWP
@@ -267,13 +273,85 @@ namespace Three_Item_Match
                 ApplicationView.GetForCurrentView().ExitFullScreenMode();
 #endif
         }
-
+        
         private void FullscreenButton_Checked(object sender, RoutedEventArgs e)
         {
 #if WINDOWS_UWP
             if (!ApplicationView.GetForCurrentView().IsFullScreenMode)
                 ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
 #endif
+        }
+
+        private void NewGame()
+        {
+            Manager.Reset(SettingsManager.GetSetting<IncorrectSetBehavior>("IncorrectBehavior", false, IncorrectSetBehavior.Nothing),
+                            SettingsManager.GetSetting<bool>("AutoDeal", false, false),
+                            SettingsManager.GetSetting<bool>("EnsureSets", false, false),
+                            SettingsManager.GetSetting<bool>("PenaltyOnDealWithSets", false, false),
+                            SettingsManager.GetSetting<bool>("TrainingMode", false, false),
+                            SettingsManager.GetSetting<bool>("DrawThree", false, true),
+                            SettingsManager.GetSetting<bool>("InstantDeal", false, false));
+            Manager.Start();
+            SetCurrentScreen();
+        }
+
+        private async void VerifyNewGame()
+        {
+            if (Manager.IsInGame)
+            {
+                bool result = false;
+                MessageDialog verifyDialog = new MessageDialog("There is a game in progress. Starting a new game will end this one and record its progress in the database.", "End Current Game?");
+                verifyDialog.Commands.Add(new UICommand() { Label = "Finish Current Game" });
+                verifyDialog.Commands.Add(new UICommand() { Invoked = (e) => result = true, Label = "Start New Game" });
+                await verifyDialog.ShowAsync();
+                if (result)
+                    NewGame();
+            }
+            else
+                NewGame();
+        }
+
+        private void ShowGameOver()
+        {
+
+        }
+
+        private void SetCurrentScreen()
+        {
+            if (Manager.IsInGame)
+            {
+                MainCanvas.Visibility = Visibility.Visible;
+                WelcomeGrid.Visibility = Visibility.Collapsed;
+                GameOverGrid.Visibility = Visibility.Collapsed;
+                PauseGrid.Visibility = Manager.IsPaused ? Visibility.Visible : Visibility.Collapsed;
+                foreach (var crd in Dealer.DrawnCards)
+                    Cards[crd].SourceImage.Visibility = Manager.IsPaused ? Visibility.Collapsed : Visibility.Visible;
+            }
+            else
+            {
+                if (ConcludedGame)
+                {
+                    MainCanvas.Visibility = Visibility.Collapsed;
+                    GameOverGrid.Visibility = Visibility.Visible;
+                    WelcomeGrid.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    MainCanvas.Visibility = Visibility.Collapsed;
+                    GameOverGrid.Visibility = Visibility.Collapsed;
+                    WelcomeGrid.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        private void GameOverGrid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+        }
+
+        private void StartGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewGame();
         }
     }
 }

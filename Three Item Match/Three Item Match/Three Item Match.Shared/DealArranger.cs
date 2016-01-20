@@ -479,6 +479,7 @@ namespace Three_Item_Match
             for (int i = 0; i < DrawnCards.Count; i++)
             {
                 FaceUpCards[DrawnCards[i]] = true;
+                Canvas.SetZIndex(Cards[DrawnCards[i]].SourceImage, 0);
             }
 
             for (int i = 0; i < CollectedSets.Count; i++)

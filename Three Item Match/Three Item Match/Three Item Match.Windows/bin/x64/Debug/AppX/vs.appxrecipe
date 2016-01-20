@@ -28,7 +28,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.exe">
       <PackagePath>Three Item Match.Windows.exe</PackagePath>
-      <Modified>2016-01-05T06:32:00.541</Modified>
+      <Modified>2016-01-15T23:26:02.375</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\packages\SQLitePCL.3.8.7.2\lib\netcore451\SQLitePCL.dll">
       <PackagePath>SQLitePCL.dll</PackagePath>
@@ -416,7 +416,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\Three Item Match.Windows.xr.xml">
       <PackagePath>Three Item Match.Windows.xr.xml</PackagePath>
-      <Modified>2016-01-05T06:28:23.529</Modified>
+      <Modified>2016-01-14T05:25:48.883</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -428,7 +428,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2016-01-05T06:28:23.688</Modified>
+      <Modified>2016-01-14T05:31:32.817</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\ScaleDownControl.xbf">
       <PackagePath>ScaleDownControl.xbf</PackagePath>
@@ -436,7 +436,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\SettingsPage.xbf">
       <PackagePath>SettingsPage.xbf</PackagePath>
-      <Modified>2016-01-05T06:28:23.694</Modified>
+      <Modified>2016-01-14T05:25:49.141</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\StatsPage.xbf">
       <PackagePath>StatsPage.xbf</PackagePath>
@@ -444,7 +444,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Alexander\Documents\GitHub\Three_Item_Match\Three Item Match\Three Item Match\Three Item Match.Windows\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-01-05T06:32:00.913</Modified>
+      <Modified>2016-01-15T23:26:03.301</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

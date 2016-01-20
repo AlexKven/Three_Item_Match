@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\three item match\three item match.windows\obj\x64\debug\intermediatexaml\three item match.windows.exe" HashGuid="4b83cf22-1f42-293d-aaec-2a1af5b0cf1a" />
+    <LocalAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\three item match\three item match.windows\obj\x64\debug\intermediatexaml\three item match.windows.exe" HashGuid="1a0c91d5-aaa3-f788-2c07-4d952ab3ef43" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
     <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\sqlitepcl.3.8.7.2\lib\netcore451\sqlitepcl.dll" HashGuid="a405761a-bd1d-dc16-54b5-36df2e9981c5" />
     <ReferenceAssembly PathName="c:\users\alexander\documents\github\three_item_match\three item match\packages\writeablebitmapex.1.5.0.0\lib\netcore45\writeablebitmapex.winrt.dll" HashGuid="6dd9ab30-a8ea-e714-1c9c-a07c544a2da6" />

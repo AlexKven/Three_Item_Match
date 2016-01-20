@@ -28,8 +28,8 @@ namespace Three_Item_Match
     }
 }
 
-//bool MissOnIncorrect = false
-//bool AutodealNoSets = false
+//IncorrectSetBehavior IncorrectBehavior = IncorrectSetBehavior.Nothing
+//bool AutoDeal = false
 //bool EnsureSets = false
 //bool PenaltyOnDealWithSets = false
 //bool TrainingMode = false

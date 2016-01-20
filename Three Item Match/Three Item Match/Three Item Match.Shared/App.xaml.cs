@@ -77,6 +77,22 @@ namespace Three_Item_Match
             }
 #endif
 
+#if WINDOWS_APP
+            
+#endif
+
+#if WINDOWS_PHONE_APP
+            ProvideGuiBackButton = false;
+            Windows.Phone.UI.Input.HardwareButtons.BackPressed += (s, a) =>
+            {
+                if (rootFrame?.BackStackDepth > 0)
+                {
+                    a.Handled = true;
+                    rootFrame.GoBack();
+                }
+            };
+#endif
+
             DatabaseConnection = Archiver.GetConnection();
 
             // Do not repeat app initialization when the Window already has content,
