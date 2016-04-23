@@ -112,10 +112,11 @@
     <RootType FullName="Windows.UI.Xaml.Media.ScaleTransform" />
     <RootType FullName="Three_Item_Match.ScaleDownControl" />
     <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
+      <RootProperty Name="GroupName" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Content" />
-      <RootProperty Name="IsChecked" />
+      <RootEvent Name="Checked" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Fill" />
@@ -128,9 +129,12 @@
       <RootProperty Name="Width" />
       <RootProperty Name="SelectedIndex" />
       <RootProperty Name="Items" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="Content" />
+      <RootEvent Name="Checked" />
+      <RootEvent Name="Unchecked" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
       <RootProperty Name="Content" />

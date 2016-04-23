@@ -169,12 +169,14 @@ namespace Three_Item_Match
 
         private void Pause()
         {
+            Manager.IsPaused = true;
             SetCurrentScreen();
             CounterTimer.Stop();
         }
 
         private void Unpause()
         {
+            Manager.IsPaused = false;
             SetCurrentScreen();
             IncrementTimer();
             CounterTimer.Start();
@@ -284,13 +286,14 @@ namespace Three_Item_Match
 
         private void NewGame()
         {
-            Manager.Reset(SettingsManager.GetSetting<IncorrectSetBehavior>("IncorrectBehavior", false, IncorrectSetBehavior.Nothing),
+            Manager.Reset((IncorrectSetBehavior)SettingsManager.GetSetting<int>("IncorrectBehavior", false, 0),
                             SettingsManager.GetSetting<bool>("AutoDeal", false, false),
                             SettingsManager.GetSetting<bool>("EnsureSets", false, false),
                             SettingsManager.GetSetting<bool>("PenaltyOnDealWithSets", false, false),
                             SettingsManager.GetSetting<bool>("TrainingMode", false, false),
                             SettingsManager.GetSetting<bool>("DrawThree", false, true),
                             SettingsManager.GetSetting<bool>("InstantDeal", false, false));
+            CurrentTime = TimeSpan.Zero;
             Manager.Start();
             SetCurrentScreen();
         }

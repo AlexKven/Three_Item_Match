@@ -20,33 +20,33 @@
                 <TextBlock FontSize="36" TextWrapping="WrapWholeWords">Game Options</TextBlock>
                 <TextBlock FontSize="24" TextWrapping="WrapWholeWords">These will be applied to the next game, and won't affect any game in progress.</TextBlock>
                 <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">When there are no sets drawn...</TextBlock>
-                <RadioButton FontSize="20" HorizontalAlignment="Center">Automatically draw new cards</RadioButton>
-                <RadioButton FontSize="20" HorizontalAlignment="Center" IsChecked="True">I must manually draw new cards</RadioButton>
+                <RadioButton x:Name="AutoDealButtonTrue" GroupName="AutoDeal" FontSize="20" HorizontalAlignment="Center" Checked="AutoDealButtonTrue_Checked">Automatically draw new cards</RadioButton>
+                <RadioButton x:Name="AutoDealButtonFalse" GroupName="AutoDeal" FontSize="20" HorizontalAlignment="Center" Checked="AutoDealButtonFalse_Checked">I must manually draw new cards</RadioButton>
                 <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">When drawing more cards...</TextBlock>
-                <RadioButton FontSize="20" HorizontalAlignment="Center">Ensure a set gets drawn</RadioButton>
-                <RadioButton FontSize="20" HorizontalAlignment="Center" IsChecked="True">Do not ensure a set gets drawn</RadioButton>
+                <RadioButton x:Name="EnsureSetsButtonTrue" GroupName="EnsureSets" FontSize="20" HorizontalAlignment="Center" Checked="EnsureSetsButtonTrue_Checked">Ensure a set gets drawn</RadioButton>
+                <RadioButton x:Name="EnsureSetsButtonFalse" GroupName="EnsureSets" FontSize="20" HorizontalAlignment="Center" Checked="EnsureSetsButtonFalse_Checked">Do not ensure a set gets drawn</RadioButton>
                 <Rectangle Fill="LightGray" Height="1" HorizontalAlignment="Stretch" Margin="10, 5, 10, 5"/>
                 <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">When I select an incorrect set...</TextBlock>
-                <ComboBox HorizontalAlignment="Center" Width="300" SelectedIndex="0">
+                <ComboBox x:Name="IncorrectBehaviorBox" HorizontalAlignment="Center" Width="300" SelectedIndex="0" SelectionChanged="IncorrectBehaviorBox_SelectionChanged">
                     <ComboBoxItem>Do Nothing</ComboBoxItem>
                     <ComboBoxItem>Add it to Missed Sets</ComboBoxItem>
                     <ComboBoxItem>End Game</ComboBoxItem>
                 </ComboBox>
                 <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">When I falsely claim that there are no sets...</TextBlock>
-                <ComboBox HorizontalAlignment="Center" Width="300" SelectedIndex="0">
+                <ComboBox x:Name="PenaltyOnDealWithSetsBox" HorizontalAlignment="Center" Width="300" SelectedIndex="0" SelectionChanged="PenaltyOnDealWithSetsBox_SelectionChanged">
                     <ComboBoxItem>Do Nothing</ComboBoxItem>
                     <ComboBoxItem>Add it to Missed Sets</ComboBoxItem>
                 </ComboBox>
                 <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">When more cards need to be drawn...</TextBlock>
-                <ComboBox HorizontalAlignment="Center" Width="300" SelectedIndex="0">
+                <ComboBox x:Name="DrawThreeBox" HorizontalAlignment="Center" Width="300" SelectedIndex="0" SelectionChanged="DrawThreeBox_SelectionChanged">
                     <ComboBoxItem>Draw One Card</ComboBoxItem>
                     <ComboBoxItem>Draw Three Cards</ComboBoxItem>
                 </ComboBox>
                 <Rectangle Fill="LightGray" Height="1" HorizontalAlignment="Stretch" Margin="10, 5, 10, 5"/>
-                <CheckBox>
+                <CheckBox x:Name="TrainingModeBox" Checked="TrainingModeBox_Checked" Unchecked="TrainingModeBox_Unchecked">
                     <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">Enable training mode (for complete beginners).</TextBlock>
                 </CheckBox>
-                <CheckBox>
+                <CheckBox x:Name="InstantDealBox" Checked="InstantDealBox_Checked" Unchecked="InstantDealBox_Unchecked">
                     <TextBlock HorizontalAlignment="Center" FontSize="26" TextWrapping="WrapWholeWords">Enable instant draw (turns off animations, which can make gameplay quicker).</TextBlock>
                 </CheckBox>
             </StackPanel>

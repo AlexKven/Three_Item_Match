@@ -10,6 +10,7 @@ namespace Three_Item_Match
         public static T GetSetting<T>(string settingName, bool roaming, T def)
         {
             ApplicationDataContainer curContainer = roaming ? ApplicationData.Current.RoamingSettings : ApplicationData.Current.LocalSettings;
+            
             object result = curContainer.Values[settingName];
             if (result == null) return def;
             return (T)result;

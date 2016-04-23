@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static Three_Item_Match.HelperFunctions;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -41,6 +42,16 @@ namespace Three_Item_Match
         /// session. The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            IsLoading = true;
+            var incorrectSetBehavior = SettingsManager.GetSetting<int>("IncorrectSetBehavior", false, 0);
+            IncorrectBehaviorBox.SelectedIndex = incorrectSetBehavior;
+            (SettingsManager.GetSetting<bool>("AutoDeal", false, false) ? AutoDealButtonTrue : AutoDealButtonFalse).IsChecked = true;
+            (SettingsManager.GetSetting<bool>("EnsureSets", false, false) ? EnsureSetsButtonTrue : EnsureSetsButtonFalse).IsChecked = true;
+            PenaltyOnDealWithSetsBox.SelectedIndex = SettingsManager.GetSetting<bool>("PenaltyOnDealWithSets", false, false) ? 1 : 0;
+            DrawThreeBox.SelectedIndex = SettingsManager.GetSetting<bool>("DrawThree", false, true) ? 1 : 0;
+            TrainingModeBox.IsChecked = SettingsManager.GetSetting<bool>("TrainingMode", false, false);
+            InstantDealBox.IsChecked = SettingsManager.GetSetting<bool>("InstantDeal", false, false);
+            IsLoading = false;
         }
 
         /// <summary>
@@ -78,6 +89,8 @@ namespace Three_Item_Match
         }
         #endregion
 
+        private bool IsLoading;
+
         public SettingsPage()
         {
             this.InitializeComponent();
@@ -89,6 +102,83 @@ namespace Three_Item_Match
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
+        }
+
+        private void AutoDealButtonTrue_Checked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("AutoDeal", false, true);
+        }
+
+        private void AutoDealButtonFalse_Checked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("AutoDeal", false, false);
+        }
+
+        private void EnsureSetsButtonTrue_Checked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("EnsureSets", false, true);
+        }
+
+        private void EnsureSetsButtonFalse_Checked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("EnsureSets", false, false);
+        }
+
+        private void IncorrectBehaviorBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<int>("IncorrectBehavior", false, IncorrectBehaviorBox.SelectedIndex);
+        }
+
+        private void PenaltyOnDealWithSetsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("PenaltyOnDealWithSets", false, PenaltyOnDealWithSetsBox.SelectedIndex == 1);
+        }
+
+        private void DrawThreeBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("DrawThree", false, DrawThreeBox.SelectedIndex == 1);
+        }
+
+        private void TrainingModeBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("TrainingMode", false, true);
+        }
+
+        private void TrainingModeBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("TrainingMode", false, false);
+        }
+
+        private void InstantDealBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("InstantDeal", false, true);
+        }
+
+        private void InstantDealBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (IsLoading)
+                return;
+            SettingsManager.SetSetting<bool>("InstantDeal", false, false);
         }
     }
 }
